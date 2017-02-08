@@ -10,8 +10,9 @@
 		3A5738151E4B1940002E688B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5738141E4B1940002E688B /* AppDelegate.swift */; };
 		3A57381C1E4B1940002E688B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A57381B1E4B1940002E688B /* Assets.xcassets */; };
 		3A57381F1E4B1940002E688B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A57381D1E4B1940002E688B /* LaunchScreen.storyboard */; };
-		3A57382A1E4B1940002E688B /* BallerzTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5738291E4B1940002E688B /* BallerzTests.swift */; };
 		3A5738361E4B1E28002E688B /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5738351E4B1E28002E688B /* RootViewController.swift */; };
+		3A5738381E4B2088002E688B /* PlayerModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5738371E4B2088002E688B /* PlayerModelTests.swift */; };
+		3A57383A1E4B2123002E688B /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5738391E4B2123002E688B /* PlayerModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,9 +32,10 @@
 		3A57381E1E4B1940002E688B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A5738201E4B1940002E688B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A5738251E4B1940002E688B /* BallerzTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BallerzTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A5738291E4B1940002E688B /* BallerzTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallerzTests.swift; sourceTree = "<group>"; };
 		3A57382B1E4B1940002E688B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A5738351E4B1E28002E688B /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		3A5738371E4B2088002E688B /* PlayerModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerModelTests.swift; sourceTree = "<group>"; };
+		3A5738391E4B2123002E688B /* PlayerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				3A57381B1E4B1940002E688B /* Assets.xcassets */,
 				3A57381D1E4B1940002E688B /* LaunchScreen.storyboard */,
 				3A5738201E4B1940002E688B /* Info.plist */,
+				3A5738391E4B2123002E688B /* PlayerModel.swift */,
 			);
 			path = Ballerz;
 			sourceTree = "<group>";
@@ -87,8 +90,8 @@
 		3A5738281E4B1940002E688B /* BallerzTests */ = {
 			isa = PBXGroup;
 			children = (
-				3A5738291E4B1940002E688B /* BallerzTests.swift */,
 				3A57382B1E4B1940002E688B /* Info.plist */,
+				3A5738371E4B2088002E688B /* PlayerModelTests.swift */,
 			);
 			path = BallerzTests;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 					3A5738241E4B1940002E688B = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = B3H446T9U7;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 3A5738101E4B1940002E688B;
 					};
@@ -214,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A57383A1E4B2123002E688B /* PlayerModel.swift in Sources */,
 				3A5738361E4B1E28002E688B /* RootViewController.swift in Sources */,
 				3A5738151E4B1940002E688B /* AppDelegate.swift in Sources */,
 			);
@@ -223,7 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A57382A1E4B1940002E688B /* BallerzTests.swift in Sources */,
+				3A5738381E4B2088002E688B /* PlayerModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,11 +378,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = B3H446T9U7;
 				INFOPLIST_FILE = BallerzTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RenaldoMoon.BallerzTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ballerz.app/Ballerz";
 			};
@@ -388,6 +395,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = B3H446T9U7;
 				INFOPLIST_FILE = BallerzTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
