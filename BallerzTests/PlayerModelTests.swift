@@ -23,9 +23,10 @@ class PlayerModelTests: XCTestCase {
 		let testName = "baller"
 		let testPoints = 34.555544
 		let testPicURL = "www.google.com"
-		let pModel = PlayerModel(name: testName, points: testPoints, picURL: testPicURL)
+		let pModel = PlayerModel(name: testName, points: testPoints, id: 1, picURL: testPicURL)
 		XCTAssert(pModel.name == testName)
 		XCTAssert(pModel.points == testPoints)
 		XCTAssert(pModel.picURL == testPicURL)
+		XCTAssert(pModel.id == 1)
 	}
 }

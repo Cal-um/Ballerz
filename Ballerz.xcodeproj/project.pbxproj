@@ -13,6 +13,10 @@
 		3A5738361E4B1E28002E688B /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5738351E4B1E28002E688B /* RootViewController.swift */; };
 		3A5738381E4B2088002E688B /* PlayerModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5738371E4B2088002E688B /* PlayerModelTests.swift */; };
 		3A57383A1E4B2123002E688B /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5738391E4B2123002E688B /* PlayerModel.swift */; };
+		3A57383C1E4B5777002E688B /* GuessingGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A57383B1E4B5777002E688B /* GuessingGameModel.swift */; };
+		3A5738421E4B5F29002E688B /* GuessingGameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5738411E4B5F29002E688B /* GuessingGameLogic.swift */; };
+		3A5738441E4B6084002E688B /* GuessingGameModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5738431E4B6084002E688B /* GuessingGameModelTests.swift */; };
+		3AFFFD021E4B76CF00205E17 /* MutableCollection+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFFD011E4B76CF00205E17 /* MutableCollection+Sequence.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,10 @@
 		3A5738351E4B1E28002E688B /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		3A5738371E4B2088002E688B /* PlayerModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerModelTests.swift; sourceTree = "<group>"; };
 		3A5738391E4B2123002E688B /* PlayerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
+		3A57383B1E4B5777002E688B /* GuessingGameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessingGameModel.swift; sourceTree = "<group>"; };
+		3A5738411E4B5F29002E688B /* GuessingGameLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessingGameLogic.swift; sourceTree = "<group>"; };
+		3A5738431E4B6084002E688B /* GuessingGameModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessingGameModelTests.swift; sourceTree = "<group>"; };
+		3AFFFD011E4B76CF00205E17 /* MutableCollection+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MutableCollection+Sequence.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,11 +86,14 @@
 			isa = PBXGroup;
 			children = (
 				3A5738141E4B1940002E688B /* AppDelegate.swift */,
+				3A5738391E4B2123002E688B /* PlayerModel.swift */,
 				3A5738351E4B1E28002E688B /* RootViewController.swift */,
+				3A57383B1E4B5777002E688B /* GuessingGameModel.swift */,
+				3A5738411E4B5F29002E688B /* GuessingGameLogic.swift */,
+				3AFFFD001E4B769800205E17 /* Extensions */,
 				3A57381B1E4B1940002E688B /* Assets.xcassets */,
 				3A57381D1E4B1940002E688B /* LaunchScreen.storyboard */,
 				3A5738201E4B1940002E688B /* Info.plist */,
-				3A5738391E4B2123002E688B /* PlayerModel.swift */,
 			);
 			path = Ballerz;
 			sourceTree = "<group>";
@@ -92,8 +103,17 @@
 			children = (
 				3A57382B1E4B1940002E688B /* Info.plist */,
 				3A5738371E4B2088002E688B /* PlayerModelTests.swift */,
+				3A5738431E4B6084002E688B /* GuessingGameModelTests.swift */,
 			);
 			path = BallerzTests;
+			sourceTree = "<group>";
+		};
+		3AFFFD001E4B769800205E17 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3AFFFD011E4B76CF00205E17 /* MutableCollection+Sequence.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,7 +238,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A57383C1E4B5777002E688B /* GuessingGameModel.swift in Sources */,
 				3A57383A1E4B2123002E688B /* PlayerModel.swift in Sources */,
+				3AFFFD021E4B76CF00205E17 /* MutableCollection+Sequence.swift in Sources */,
+				3A5738421E4B5F29002E688B /* GuessingGameLogic.swift in Sources */,
 				3A5738361E4B1E28002E688B /* RootViewController.swift in Sources */,
 				3A5738151E4B1940002E688B /* AppDelegate.swift in Sources */,
 			);
@@ -228,6 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A5738441E4B6084002E688B /* GuessingGameModelTests.swift in Sources */,
 				3A5738381E4B2088002E688B /* PlayerModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
