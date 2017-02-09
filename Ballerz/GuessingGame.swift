@@ -8,32 +8,64 @@
 
 import Foundation
 
+typealias TwoCards = (PlayerModel, PlayerModel)
+
 final class GuessingGame {
 
 	let correctPoints = 3
 	let incorrectPoints = -3
 	let model: GuessingGameModel
-	var currentCardsInPlay: (PlayerModel, PlayerModel)?
+	var currentCardsInPlay: TwoCards?
 
 	init(model: GuessingGameModel) {
 		self.model = model
-		processTwoPlayerDeal()
+		let _ = processTwoPlayerDeal()
 	}
 
-	func processTwoPlayerDeal() {
+	func processRound(choice: CardsInPlayIndex) -> Answer {
+
+		if choice == highestCardInPlay() {
+
+			model.addToCurrentScore(points: correctPoints)
+			let roundStatus = processOnePlayerDeal(to: choice)
+
+			if case .play = roundStatus {
+				model.advanceRound()
+			}
+
+			switch choice {
+			case .top:
+				return .correct(remove: .bottom, roundStatus)
+			case .bottom:
+				return .correct(remove: .top, roundStatus)
+			}
+
+		} else {
+			model.removeFromCurrentScore(points: incorrectPoints)
+			let roundStatus = processTwoPlayerDeal()
+
+			if case .play = roundStatus {
+				model.advanceRound()
+			}
+
+			return .incorrect(roundStatus)
+		}
+	}
+
+	func processTwoPlayerDeal() -> RoundStatus {
 		let deal = model.dealTwoPlayers()
 		switch  deal {
 		case .play2(let player0, let player1):
 			currentCardsInPlay = (player0, player1)
-		case .endOfGame(score: _):
-			currentCardsInPlay = nil
-			print("end of game")
+			return .play
+		case .emptyDeck(let score):
+			return .endOfGame(finalScore: score)
 		default:
 			fatalError("This should not be possible")
 		}
 	}
 
-	func processOnePlayerDeal(to index: CardsInPlayIndex) {
+	func processOnePlayerDeal(to index: CardsInPlayIndex) -> RoundStatus {
 		let deal = model.dealOnePlayer()
 
 		switch deal {
@@ -44,9 +76,9 @@ final class GuessingGame {
 			case .bottom:
 				currentCardsInPlay?.1 = player
 			}
-		case .endOfGame(score: _):
-			currentCardsInPlay = nil
-			print("end of game")
+			return .play
+		case .emptyDeck(let score):
+			return(.endOfGame(finalScore: score))
 		default:
 			fatalError("This should not be possible")
 		}
@@ -66,4 +98,14 @@ final class GuessingGame {
 enum CardsInPlayIndex: Int {
 	case top
 	case bottom
+}
+
+enum Answer {
+	case correct(remove: CardsInPlayIndex, RoundStatus)
+	case incorrect(RoundStatus)
+}
+
+enum RoundStatus {
+	case play
+	case endOfGame(finalScore: Int)
 }

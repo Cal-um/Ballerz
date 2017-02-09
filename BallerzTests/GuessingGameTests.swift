@@ -39,34 +39,45 @@ class GuessingGameTests: XCTestCase {
 	func testProcessTwoPlayerDeal() {
 		XCTAssert(game.currentCardsInPlay != nil)
 		while game.model.players.count > 1 {
-			game.processTwoPlayerDeal()
+			let _ = game.processTwoPlayerDeal()
 		}
-		game.processTwoPlayerDeal()
-		XCTAssert(game.currentCardsInPlay == nil)
+		let status = game.processTwoPlayerDeal()
+
+		switch status {
+		case .endOfGame(finalScore: ):
+			XCTAssert(true)
+		default:
+			XCTAssert(false)
+		}
 	}
 
 	func testProcessOnePlayerDeal() {
 		let initialTop = game.currentCardsInPlay?.0
-		game.processOnePlayerDeal(to: .top)
+		let _ = game.processOnePlayerDeal(to: .top)
 		let newTop = game.currentCardsInPlay?.0
 		XCTAssert(initialTop != newTop)
 
 		let initialBotton = game.currentCardsInPlay?.1
-		game.processOnePlayerDeal(to: .bottom)
+		let _ = game.processOnePlayerDeal(to: .bottom)
 		let newBottom = game.currentCardsInPlay?.1
 		XCTAssert(initialBotton != newBottom)
 
 		while game.model.players.count > 0 {
-			game.processOnePlayerDeal(to: .top)
+			let _ = game.processOnePlayerDeal(to: .top)
 		}
-		game.processOnePlayerDeal(to: .top)
-		XCTAssert(game.currentCardsInPlay == nil)
+		let status = game.processOnePlayerDeal(to: .top)
+
+		switch status {
+		case .endOfGame(finalScore: _):
+			XCTAssert(true)
+		default: XCTAssert(false)
+		}
 	}
 
 	func testHighestCardInPlay() {
 		let highestCard = game.highestCardInPlay()
 		let currentCardsInPlay = game.currentCardsInPlay!
-		
+
 		switch highestCard {
 		case .top:
 			if currentCardsInPlay.0.points > currentCardsInPlay.1.points {
@@ -82,5 +93,4 @@ class GuessingGameTests: XCTestCase {
 			}
 		}
 	}
-
 }

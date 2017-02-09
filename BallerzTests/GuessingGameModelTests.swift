@@ -52,6 +52,12 @@ class GuessingGameModelTests: XCTestCase {
 		XCTAssert(model.currentScore == -10)
 	}
 
+	func testAdvanceRound() {
+		model.advanceRound()
+		XCTAssert(model.currentRound == 2)
+
+	}
+
 	func testDealTwoPlayers() {
 		let initialCount = model.players.count
 		let firstPop = model.players[model.players.count - 1]
@@ -72,7 +78,7 @@ class GuessingGameModelTests: XCTestCase {
 		model.addToCurrentScore(points: 3)
 		let lowDeal = model.dealTwoPlayers()
 
-		if case let .endOfGame(points) = lowDeal {
+		if case let .emptyDeck(points) = lowDeal {
 			XCTAssert(points == 3)
 		} else {
 			XCTAssert(false)
@@ -96,7 +102,7 @@ class GuessingGameModelTests: XCTestCase {
 
 		let lowDeal = model.dealOnePlayer()
 
-		if case let .endOfGame(points) = lowDeal {
+		if case let .emptyDeck(points) = lowDeal {
 			XCTAssert(model.currentScore == points)
 		} else {
 			XCTAssert(false)

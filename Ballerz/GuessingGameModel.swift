@@ -29,22 +29,26 @@ extension GuessingGameModel {
 		currentScore -= points
 	}
 
+	func advanceRound() {
+		currentRound += 1
+	}
+
 	func dealTwoPlayers() -> DealState {
 
-		guard players.count > 1, let firstPop = players.popLast(), let secondPop = players.popLast() else { return .endOfGame(score: currentScore) }
+		guard players.count > 1, let firstPop = players.popLast(), let secondPop = players.popLast() else { return .emptyDeck(finalScore: currentScore) }
 
 		return .play2(firstPop, secondPop)
 	}
 
 	func dealOnePlayer() -> DealState {
-		guard players.count > 0, let popPlayer = players.popLast() else { return .endOfGame(score: currentScore) }
+		guard players.count > 0, let popPlayer = players.popLast() else { return .emptyDeck(finalScore: currentScore) }
 
 		return .play1(popPlayer)
 	}
 }
 
 enum DealState {
-	case play2(PlayerModel, PlayerModel)
+	case play2(TwoCards)
 	case play1(PlayerModel)
-	case endOfGame(score: Int)
+	case emptyDeck(finalScore: Int)
 }
