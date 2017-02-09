@@ -17,4 +17,12 @@ final class GuessingGameModel {
 	init(players: [PlayerModel]) {
 		self.players = players.shuffled()
 	}
+
+	func addToCurrentScore(points: Int) {
+		currentScore += points
+	}
+
+	func removeFromCurrentScore(points: Int) {
+		currentScore -= points
+	}
 }

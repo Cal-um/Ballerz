@@ -11,12 +11,12 @@ import Foundation
 struct PlayerModel {
 	let name: String
 	let points: Double
-	let id: Int
+	let playerID: Int
 	let picURL: String
 }
 
 extension PlayerModel: Equatable {
-	static func ==(lhs: PlayerModel, rhs: PlayerModel) -> Bool {
-		return lhs.id == rhs.id
+	static func == (lhs: PlayerModel, rhs: PlayerModel) -> Bool {
+		return lhs.playerID == rhs.playerID
 	}
 }
