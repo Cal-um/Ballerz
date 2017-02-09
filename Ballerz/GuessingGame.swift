@@ -13,10 +13,48 @@ final class GuessingGame {
 	let correctPoints = 3
 	let incorrectPoints = -3
 	let model: GuessingGameModel
-	var currentCardsInPlay: (PlayerModel, PlayerModel)!
+	var currentCardsInPlay: (PlayerModel, PlayerModel)?
 
 	init(model: GuessingGameModel) {
 		self.model = model
+		processTwoPlayerDeal()
 	}
 
+	func processTwoPlayerDeal() {
+		let deal = model.dealTwoPlayers()
+		switch  deal {
+		case .play2(let player0, let player1):
+			currentCardsInPlay = (player0, player1)
+		case .endOfGame(score: _):
+			currentCardsInPlay = nil
+			print("end of game")
+		default:
+			fatalError("This should not be possible")
+		}
+	}
+
+	func processOnePlayerDeal(to index: CardsInPlayIndex) {
+		let deal = model.dealOnePlayer()
+
+		switch deal {
+		case .play1(let player):
+			switch index {
+			case .top:
+				currentCardsInPlay?.0 = player
+			case .bottom:
+				currentCardsInPlay?.1 = player
+			}
+		case .endOfGame(score: _):
+			currentCardsInPlay = nil
+			print("end of game")
+		default:
+			fatalError("This should not be possible")
+		}
+
+	}
+}
+
+enum CardsInPlayIndex: Int {
+	case top
+	case bottom
 }

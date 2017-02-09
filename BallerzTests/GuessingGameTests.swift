@@ -21,7 +21,8 @@ class GuessingGameTests: XCTestCase {
 			let player5 = PlayerModel(name: "Klay Thompson", points: 30.839999999999996, playerID: 5, picURL: "https://d17odppiik753x.cloudfront.net/playerimages/nba/14509.png")
 			let player6 = PlayerModel(name: "Kyle Lowry", points: 38.5974025974026, playerID: 6, picURL: "https://d17odppiik753x.cloudfront.net/playerimages/nba/9535.png")
 			let player7 = PlayerModel(name: "Dwyane Wade", points: 31.43783783783784, playerID: 7, picURL: "https://d17odppiik753x.cloudfront.net/playerimages/nba/9585.png")
-			let players = [player1, player2, player3, player4, player5, player6, player7]
+			let player8 = PlayerModel(name: "Dwyane", points: 31.43783783783783, playerID: 8, picURL: "https://d17odppiik753x.cloudfront.net/playerimages/nba/9585.png")
+			let players = [player1, player2, player3, player4, player5, player6, player7, player8]
 			let model = GuessingGameModel(players: players)
 			game = GuessingGame(model: model)
     }
@@ -34,4 +35,33 @@ class GuessingGameTests: XCTestCase {
 		XCTAssert(game.correctPoints == 3)
 		XCTAssert(game.incorrectPoints == -3)
 	}
+
+	func testProcessTwoPlayerDeal() {
+		XCTAssert(game.currentCardsInPlay != nil)
+		while game.model.players.count > 1 {
+			game.processTwoPlayerDeal()
+		}
+		game.processTwoPlayerDeal()
+		XCTAssert(game.currentCardsInPlay == nil)
+	}
+
+	func testProcessOnePlayerDeal() {
+		let initialTop = game.currentCardsInPlay?.0
+		game.processOnePlayerDeal(to: .top)
+		let newTop = game.currentCardsInPlay?.0
+		XCTAssert(initialTop != newTop)
+
+		let initialBotton = game.currentCardsInPlay?.1
+		game.processOnePlayerDeal(to: .bottom)
+		let newBottom = game.currentCardsInPlay?.1
+		XCTAssert(initialBotton != newBottom)
+
+		while game.model.players.count > 0 {
+			game.processOnePlayerDeal(to: .top)
+		}
+		game.processOnePlayerDeal(to: .top)
+		XCTAssert(game.currentCardsInPlay == nil)
+
+	}
+
 }
