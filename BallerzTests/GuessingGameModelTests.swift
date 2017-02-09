@@ -23,7 +23,6 @@ class GuessingGameModelTests: XCTestCase {
 		let player5 = PlayerModel(name: "Klay Thompson", points: 30.839999999999996, playerID: 5, picURL: "https://d17odppiik753x.cloudfront.net/playerimages/nba/14509.png")
 		let player6 = PlayerModel(name: "Kyle Lowry", points: 38.5974025974026, playerID: 6, picURL: "https://d17odppiik753x.cloudfront.net/playerimages/nba/9535.png")
 		let player7 = PlayerModel(name: "Dwyane Wade", points: 31.43783783783784, playerID: 7, picURL: "https://d17odppiik753x.cloudfront.net/playerimages/nba/9585.png")
-		// Do not change the number of items in intial players array
 		players = [player1, player2, player3, player4, player5, player6, player7]
 		model = GuessingGameModel(players: players)
 	}
@@ -48,8 +47,8 @@ class GuessingGameModelTests: XCTestCase {
 
 	func testRemoveFromScore() {
 		XCTAssert(model.currentScore == 0)
-		model.removeFromCurrentScore(points: 10)
-		XCTAssert(model.currentScore == -10)
+		model.removeFromCurrentScore(points: -3)
+		XCTAssert(model.currentScore == -3)
 	}
 
 	func testAdvanceRound() {

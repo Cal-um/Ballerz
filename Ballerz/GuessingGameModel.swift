@@ -26,7 +26,7 @@ extension GuessingGameModel {
 	}
 
 	func removeFromCurrentScore(points: Int) {
-		currentScore -= points
+		currentScore += points
 	}
 
 	func advanceRound() {
