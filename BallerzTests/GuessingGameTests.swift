@@ -61,7 +61,26 @@ class GuessingGameTests: XCTestCase {
 		}
 		game.processOnePlayerDeal(to: .top)
 		XCTAssert(game.currentCardsInPlay == nil)
+	}
 
+	func testHighestCardInPlay() {
+		let highestCard = game.highestCardInPlay()
+		let currentCardsInPlay = game.currentCardsInPlay!
+		
+		switch highestCard {
+		case .top:
+			if currentCardsInPlay.0.points > currentCardsInPlay.1.points {
+				XCTAssert(true)
+			} else {
+				XCTAssert(false)
+			}
+		case .bottom:
+			if currentCardsInPlay.1.points > currentCardsInPlay.0.points {
+				XCTAssert(true)
+			} else {
+				XCTAssert(false)
+			}
+		}
 	}
 
 }

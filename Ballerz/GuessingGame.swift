@@ -50,7 +50,16 @@ final class GuessingGame {
 		default:
 			fatalError("This should not be possible")
 		}
+	}
 
+	func highestCardInPlay() -> CardsInPlayIndex {
+		guard let currentCardsInPlay = currentCardsInPlay else { fatalError("This method cannot be used with no cards in play") }
+		// It seems unlikely that the points will be equal so we will return .top for now in the event.
+		if currentCardsInPlay.0.points >= currentCardsInPlay.1.points {
+			return .top
+		} else {
+			return .bottom
+		}
 	}
 }
 
