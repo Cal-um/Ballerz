@@ -8,13 +8,15 @@
 
 import Foundation
 
-struct GuessingGame {
+final class GuessingGame {
 
 	let correctPoints = 3
 	let incorrectPoints = -3
 	let model: GuessingGameModel
+	var currentCardsInPlay: (PlayerModel, PlayerModel)!
 
-	var currentScore: Int {
-		return model.currentScore
+	init(model: GuessingGameModel) {
+		self.model = model
 	}
+
 }

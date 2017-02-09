@@ -10,13 +10,16 @@ import Foundation
 
 final class GuessingGameModel {
 
-	private(set) var currentScore = 0
-	private(set) var currentRound = 1
-	private(set) var players: [PlayerModel]
+	fileprivate(set) var currentScore = 0
+	fileprivate(set) var currentRound = 1
+	fileprivate(set) var players: [PlayerModel]
 
 	init(players: [PlayerModel]) {
 		self.players = players.shuffled()
 	}
+}
+
+extension GuessingGameModel {
 
 	func addToCurrentScore(points: Int) {
 		currentScore += points
@@ -25,4 +28,23 @@ final class GuessingGameModel {
 	func removeFromCurrentScore(points: Int) {
 		currentScore -= points
 	}
+
+	func dealTwoPlayers() -> DealState {
+
+		guard players.count > 1, let firstPop = players.popLast(), let secondPop = players.popLast() else { return .endOfGame(score: currentScore) }
+
+		return .play2(firstPop, secondPop)
+	}
+
+	func dealOnePlayer() -> DealState {
+		guard players.count > 0, let popPlayer = players.popLast() else { return .endOfGame(score: currentScore) }
+
+		return .play1(popPlayer)
+	}
+}
+
+enum DealState {
+	case play2(PlayerModel, PlayerModel)
+	case play1(PlayerModel)
+	case endOfGame(score: Int)
 }

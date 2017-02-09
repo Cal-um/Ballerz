@@ -23,6 +23,7 @@ class GuessingGameModelTests: XCTestCase {
 		let player5 = PlayerModel(name: "Klay Thompson", points: 30.839999999999996, playerID: 5, picURL: "https://d17odppiik753x.cloudfront.net/playerimages/nba/14509.png")
 		let player6 = PlayerModel(name: "Kyle Lowry", points: 38.5974025974026, playerID: 6, picURL: "https://d17odppiik753x.cloudfront.net/playerimages/nba/9535.png")
 		let player7 = PlayerModel(name: "Dwyane Wade", points: 31.43783783783784, playerID: 7, picURL: "https://d17odppiik753x.cloudfront.net/playerimages/nba/9585.png")
+		// Do not change the number of items in players array
 		players = [player1, player2, player3, player4, player5, player6, player7]
 		model = GuessingGameModel(players: players)
 	}
@@ -51,4 +52,40 @@ class GuessingGameModelTests: XCTestCase {
 		XCTAssert(model.currentScore == -10)
 	}
 
+	func testDealTwoPlayers() {
+		let initialCount = model.players.count
+		let firstPop = model.players[model.players.count - 1]
+		let secondPop = model.players[model.players.count - 2]
+		let deal = model.dealTwoPlayers()
+		if case let .play2(result) = deal {
+			XCTAssert(result.0 == firstPop)
+			XCTAssert(result.1 == secondPop)
+			XCTAssert(model.players.count == initialCount - 2)
+		} else {
+			XCTAssert(false)
+		}
+
+		model.addToCurrentScore(points: 3)
+		let _ = model.dealTwoPlayers()
+		let _ = model.dealTwoPlayers()
+		let lowDeal = model.dealTwoPlayers()
+
+		if case let .endOfGame(points) = lowDeal {
+			XCTAssert(points == 3)
+		} else {
+			XCTAssert(false)
+		}
+	}
+
+	func testDeal1Player() {
+		let initialCount = model.players.count
+		let pop = model.players[model.players.count - 1]
+		let deal = model.dealOnePlayer()
+		if case let .play1(result) = deal {
+			XCTAssert(result == pop)
+			XCTAssert(model.players.count == initialCount - 1)
+		} else {
+			XCTAssert(false)
+		}
+	}
 }
