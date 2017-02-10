@@ -21,21 +21,26 @@ class RootViewController: UITableViewController {
 	var game: GuessingGame!
 
 	override func viewDidLoad() {
-		let players = [player1, player2, player3, player4, player5, player6]
-		let model = GuessingGameModel(players: players)
-		game = GuessingGame(model: model)
 		self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-		
-		
-		
+		web()
 	}
-	
+
 	func web() {
-		
+		WebService().load(resource: parsePlayers(withURL: Const.URLs.Players)) { result in
+
+			if case .success(let array) = result {
+				DispatchQueue.main.async {
+					let model = GuessingGameModel(players: array)
+					self.game = GuessingGame(model: model)
+					self.tableView.reloadData()
+				}
+
+			}
+		}
 	}
 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 2
+		return game != nil ? 2 : 0
 	}
 
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,15 +66,16 @@ class RootViewController: UITableViewController {
 		switch game.processRound(choice: cardIndex) {
 		case .correct(let rowToRemove, let roundStatus):
 			if case .endOfGame(let score) = roundStatus {
-				print(score)
+				print("END OF GAME : SCORE\(score)")
 				break
 			} else {
+				print(rowToRemove.rawValue)
 				tableView.deleteRows(at: [IndexPath(row: rowToRemove.rawValue, section: 0)], with: .left)
 				tableView.insertRows(at: [IndexPath(row: rowToRemove.rawValue, section: 0)], with: .left)
 			}
 		case .incorrect(let roundStatus):
 			if case .endOfGame(let score) = roundStatus {
-				print(score)
+				print("END OF GAME : SCORE\(score)")
 				break
 			} else {
 				tableView.deleteRows(at: [IndexPath(row: CardsInPlayIndex.top.rawValue, section: 0)], with: .left)

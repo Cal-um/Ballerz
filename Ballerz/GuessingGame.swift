@@ -15,7 +15,11 @@ final class GuessingGame {
 	let correctPoints = 3
 	let incorrectPoints = -3
 	let model: GuessingGameModel
-	var currentCardsInPlay: TwoCards?
+	var currentCardsInPlay: TwoCards? {
+		didSet {
+			print("TOP: \(currentCardsInPlay!.0.name) Points: \(currentCardsInPlay!.0.points) BOTTOM: \(currentCardsInPlay!.1.name) Points: \(currentCardsInPlay!.1.points)")
+		}
+	}
 
 	init(model: GuessingGameModel) {
 		self.model = model
@@ -25,9 +29,9 @@ final class GuessingGame {
 	func processRound(choice: CardsInPlayIndex) -> Answer {
 
 		if choice == highestCardInPlay() {
-
+			print("CORRECT")
 			model.addToCurrentScore(points: correctPoints)
-			let roundStatus = processOnePlayerDeal(to: choice)
+			let roundStatus = processOnePlayerDeal(to: choice.opposite())
 
 			if case .play = roundStatus {
 				model.advanceRound()
@@ -35,8 +39,10 @@ final class GuessingGame {
 
 			switch choice {
 			case .top:
+				print("TOP")
 				return .correct(remove: .bottom, roundStatus)
 			case .bottom:
+				print("BOTTOM")
 				return .correct(remove: .top, roundStatus)
 			}
 
@@ -98,6 +104,15 @@ final class GuessingGame {
 enum CardsInPlayIndex: Int {
 	case top
 	case bottom
+
+	func opposite() -> CardsInPlayIndex {
+		switch self {
+		case .top:
+			return .bottom
+		case .bottom:
+			return .top
+		}
+	}
 }
 
 enum Answer {
