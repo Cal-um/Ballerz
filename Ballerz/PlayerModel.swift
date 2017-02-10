@@ -37,3 +37,10 @@ extension PlayerModel: Equatable {
 		return lhs.playerID == rhs.playerID
 	}
 }
+
+extension PlayerModel {
+	func pointsForCard() -> String {
+		let roundedToOneDecimalPlace = (self.points * 10).rounded() / 10
+		return String(roundedToOneDecimalPlace)
+	}
+}

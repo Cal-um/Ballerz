@@ -10,18 +10,13 @@ import UIKit
 
 class RootViewController: UITableViewController {
 
-	let player1 = PlayerModel(name: "Stephen Curry", points: 47.94303797468354, playerID: 1, picURL: "https://d17odppiik753x.cloudfront.net/playerimages/nba/9524.png")
-	let player2 = PlayerModel(name: "Draymond Green", points: 38.9604938271605, playerID: 2, picURL: "https://d17odppiik753x.cloudfront.net/playerimages/nba/15860.png")
-	let player3 = PlayerModel(name: "Damian Lillard", points: 39.37866666666667, playerID: 3, picURL: "https://d17odppiik753x.cloudfront.net/playerimages/nba/20848.png")
-	let player4 = PlayerModel(name: "Hassan Whiteside", points: 35.75342465753425, playerID: 4, picURL: "https://d17odppiik753x.cloudfront.net/playerimages/nba/12363.png")
-	let player5 = PlayerModel(name: "Klay Thompson", points: 30.839999999999996, playerID: 5, picURL: "https://d17odppiik753x.cloudfront.net/playerimages/nba/14509.png")
-	let player6 = PlayerModel(name: "Kyle Lowry", points: 38.5974025974026, playerID: 6, picURL: "https://d17odppiik753x.cloudfront.net/playerimages/nba/9535.png")
-	let player7 = PlayerModel(name: "Dwyane Wade", points: 31.43783783783784, playerID: 7, picURL: "https://d17odppiik753x.cloudfront.net/playerimages/nba/9585.png")
-
 	var game: GuessingGame!
 
 	override func viewDidLoad() {
-		self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+		tableView.isScrollEnabled = false
+		tableView.separatorStyle = .none
+		tableView.separatorInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+		self.tableView.register(UINib(nibName: "PlayerCardTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
 		web()
 	}
 
@@ -34,7 +29,6 @@ class RootViewController: UITableViewController {
 					self.game = GuessingGame(model: model)
 					self.tableView.reloadData()
 				}
-
 			}
 		}
 	}
@@ -44,17 +38,29 @@ class RootViewController: UITableViewController {
 	}
 
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = self.tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+		guard let cell = self.tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? PlayerCardTableViewCell else { fatalError("Wrong cell type") }
 
 		switch indexPath.row {
 		case 0:
-			cell.textLabel?.text = game.currentCardsInPlay?.0.name
+			let player = game.currentCardsInPlay!.0
+			cell.playerName.text = player.name
+			cell.playerImage.loadImageUsingUrlString(urlString: player.picURL)
+			cell.pointsLabel.text = player.pointsForCard()
+			cell.roundedBackgroundView.layer.cornerRadius = 20
 		case 1:
-			cell.textLabel?.text = game.currentCardsInPlay?.1.name
+			let player = game.currentCardsInPlay!.1
+			cell.playerName.text = player.name
+			cell.playerImage.loadImageUsingUrlString(urlString: player.picURL)
+			cell.pointsLabel.text = player.pointsForCard()
+			cell.roundedBackgroundView.layer.cornerRadius = 20
 		default:
 			fatalError("incorrect")
 		}
 		return cell
+	}
+
+	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return view.bounds.height * 0.3
 	}
 
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
