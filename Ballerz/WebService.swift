@@ -1,5 +1,5 @@
 //
-//  Webservice.swift
+//  WebService.swift
 //  Ballerz
 //
 //  Created by Calum Harris on 09/02/2017.

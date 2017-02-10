@@ -18,8 +18,9 @@
 		3A5738441E4B6084002E688B /* GuessingGameModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5738431E4B6084002E688B /* GuessingGameModelTests.swift */; };
 		3AFFFD021E4B76CF00205E17 /* MutableCollection+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFFD011E4B76CF00205E17 /* MutableCollection+Sequence.swift */; };
 		3AFFFD051E4C769500205E17 /* GuessingGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFFD041E4C769500205E17 /* GuessingGameTests.swift */; };
-		3AFFFD081E4D347900205E17 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFFD071E4D347900205E17 /* Webservice.swift */; };
+		3AFFFD081E4D347900205E17 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFFD071E4D347900205E17 /* WebService.swift */; };
 		3AFFFD0A1E4D350E00205E17 /* DownloadPlayerConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFFD091E4D350D00205E17 /* DownloadPlayerConvenience.swift */; };
+		3AFFFD0C1E4DB78C00205E17 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFFD0B1E4DB78C00205E17 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,8 +49,9 @@
 		3A5738431E4B6084002E688B /* GuessingGameModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessingGameModelTests.swift; sourceTree = "<group>"; };
 		3AFFFD011E4B76CF00205E17 /* MutableCollection+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MutableCollection+Sequence.swift"; sourceTree = "<group>"; };
 		3AFFFD041E4C769500205E17 /* GuessingGameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessingGameTests.swift; sourceTree = "<group>"; };
-		3AFFFD071E4D347900205E17 /* Webservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
+		3AFFFD071E4D347900205E17 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		3AFFFD091E4D350D00205E17 /* DownloadPlayerConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadPlayerConvenience.swift; sourceTree = "<group>"; };
+		3AFFFD0B1E4DB78C00205E17 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			children = (
 				3A5738141E4B1940002E688B /* AppDelegate.swift */,
 				3A5738351E4B1E28002E688B /* RootViewController.swift */,
+				3AFFFD061E4D346400205E17 /* Client */,
 				3AFFFD031E4B879600205E17 /* Models */,
 				3A5738411E4B5F29002E688B /* GuessingGame.swift */,
 				3AFFFD001E4B769800205E17 /* Extensions */,
@@ -125,9 +128,9 @@
 		3AFFFD031E4B879600205E17 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3AFFFD061E4D346400205E17 /* Client */,
 				3A57383B1E4B5777002E688B /* GuessingGameModel.swift */,
 				3A5738391E4B2123002E688B /* PlayerModel.swift */,
+				3AFFFD0B1E4DB78C00205E17 /* Constants.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -135,7 +138,7 @@
 		3AFFFD061E4D346400205E17 /* Client */ = {
 			isa = PBXGroup;
 			children = (
-				3AFFFD071E4D347900205E17 /* Webservice.swift */,
+				3AFFFD071E4D347900205E17 /* WebService.swift */,
 				3AFFFD091E4D350D00205E17 /* DownloadPlayerConvenience.swift */,
 			);
 			name = Client;
@@ -264,13 +267,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A57383C1E4B5777002E688B /* GuessingGameModel.swift in Sources */,
-				3AFFFD081E4D347900205E17 /* Webservice.swift in Sources */,
+				3AFFFD081E4D347900205E17 /* WebService.swift in Sources */,
 				3A57383A1E4B2123002E688B /* PlayerModel.swift in Sources */,
 				3AFFFD021E4B76CF00205E17 /* MutableCollection+Sequence.swift in Sources */,
 				3AFFFD0A1E4D350E00205E17 /* DownloadPlayerConvenience.swift in Sources */,
 				3A5738421E4B5F29002E688B /* GuessingGame.swift in Sources */,
 				3A5738361E4B1E28002E688B /* RootViewController.swift in Sources */,
 				3A5738151E4B1940002E688B /* AppDelegate.swift in Sources */,
+				3AFFFD0C1E4DB78C00205E17 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
