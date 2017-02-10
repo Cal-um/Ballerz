@@ -18,6 +18,8 @@
 		3A5738441E4B6084002E688B /* GuessingGameModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5738431E4B6084002E688B /* GuessingGameModelTests.swift */; };
 		3AFFFD021E4B76CF00205E17 /* MutableCollection+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFFD011E4B76CF00205E17 /* MutableCollection+Sequence.swift */; };
 		3AFFFD051E4C769500205E17 /* GuessingGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFFD041E4C769500205E17 /* GuessingGameTests.swift */; };
+		3AFFFD081E4D347900205E17 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFFD071E4D347900205E17 /* Webservice.swift */; };
+		3AFFFD0A1E4D350E00205E17 /* DownloadPlayerConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFFD091E4D350D00205E17 /* DownloadPlayerConvenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		3A5738431E4B6084002E688B /* GuessingGameModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessingGameModelTests.swift; sourceTree = "<group>"; };
 		3AFFFD011E4B76CF00205E17 /* MutableCollection+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MutableCollection+Sequence.swift"; sourceTree = "<group>"; };
 		3AFFFD041E4C769500205E17 /* GuessingGameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessingGameTests.swift; sourceTree = "<group>"; };
+		3AFFFD071E4D347900205E17 /* Webservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
+		3AFFFD091E4D350D00205E17 /* DownloadPlayerConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadPlayerConvenience.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,10 +125,20 @@
 		3AFFFD031E4B879600205E17 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3AFFFD061E4D346400205E17 /* Client */,
 				3A57383B1E4B5777002E688B /* GuessingGameModel.swift */,
 				3A5738391E4B2123002E688B /* PlayerModel.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		3AFFFD061E4D346400205E17 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				3AFFFD071E4D347900205E17 /* Webservice.swift */,
+				3AFFFD091E4D350D00205E17 /* DownloadPlayerConvenience.swift */,
+			);
+			name = Client;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,8 +264,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A57383C1E4B5777002E688B /* GuessingGameModel.swift in Sources */,
+				3AFFFD081E4D347900205E17 /* Webservice.swift in Sources */,
 				3A57383A1E4B2123002E688B /* PlayerModel.swift in Sources */,
 				3AFFFD021E4B76CF00205E17 /* MutableCollection+Sequence.swift in Sources */,
+				3AFFFD0A1E4D350E00205E17 /* DownloadPlayerConvenience.swift in Sources */,
 				3A5738421E4B5F29002E688B /* GuessingGame.swift in Sources */,
 				3A5738361E4B1E28002E688B /* RootViewController.swift in Sources */,
 				3A5738151E4B1940002E688B /* AppDelegate.swift in Sources */,

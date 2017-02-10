@@ -17,14 +17,17 @@ class RootViewController: UITableViewController {
 	let player5 = PlayerModel(name: "Klay Thompson", points: 30.839999999999996, playerID: 5, picURL: "https://d17odppiik753x.cloudfront.net/playerimages/nba/14509.png")
 	let player6 = PlayerModel(name: "Kyle Lowry", points: 38.5974025974026, playerID: 6, picURL: "https://d17odppiik753x.cloudfront.net/playerimages/nba/9535.png")
 	let player7 = PlayerModel(name: "Dwyane Wade", points: 31.43783783783784, playerID: 7, picURL: "https://d17odppiik753x.cloudfront.net/playerimages/nba/9585.png")
-	
+
 	var game: GuessingGame!
-	
+
 	override func viewDidLoad() {
 		let players = [player1, player2, player3, player4, player5, player6]
 		let model = GuessingGameModel(players: players)
 		game = GuessingGame(model: model)
 		self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+		
+		
+		
 	}
 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,9 +51,9 @@ class RootViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 		tableView.beginUpdates()
-		
+
 		guard let cardIndex = CardsInPlayIndex(rawValue: indexPath.row) else { fatalError("there should only be 2 indicies") }
-		
+
 		switch game.processRound(choice: cardIndex) {
 		case .correct(let rowToRemove, let roundStatus):
 			if case .endOfGame(let score) = roundStatus {
