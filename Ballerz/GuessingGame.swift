@@ -113,6 +113,10 @@ enum CardsInPlayIndex: Int {
 			return .top
 		}
 	}
+	
+	func indexPathSectionZero() -> IndexPath {
+		return IndexPath(row: self.rawValue, section: 0)
+	}
 }
 
 enum Answer {

@@ -47,12 +47,16 @@ class RootViewController: UITableViewController {
 			cell.playerImage.loadImageUsingUrlString(urlString: player.picURL)
 			cell.pointsLabel.text = player.pointsForCard()
 			cell.roundedBackgroundView.layer.cornerRadius = 20
+			cell.pointsLabel.isHidden = true
+			cell.blurImage.isHidden = false
 		case 1:
 			let player = game.currentCardsInPlay!.1
 			cell.playerName.text = player.name
 			cell.playerImage.loadImageUsingUrlString(urlString: player.picURL)
 			cell.pointsLabel.text = player.pointsForCard()
 			cell.roundedBackgroundView.layer.cornerRadius = 20
+			cell.pointsLabel.isHidden = true
+			cell.blurImage.isHidden = false
 		default:
 			fatalError("incorrect")
 		}
@@ -76,18 +80,20 @@ class RootViewController: UITableViewController {
 				break
 			} else {
 				print(rowToRemove.rawValue)
-				tableView.deleteRows(at: [IndexPath(row: rowToRemove.rawValue, section: 0)], with: .left)
-				tableView.insertRows(at: [IndexPath(row: rowToRemove.rawValue, section: 0)], with: .left)
+				guard let correctCell = tableView.cellForRow(at: rowToRemove.opposite().indexPathSectionZero()) as? PlayerCardTableViewCell else { fatalError("Wrong cell type") }
+				correctCell.blurImage.isHidden = true
+				correctCell.pointsLabel.isHidden = false
+				tableView.deleteRows(at: [rowToRemove.indexPathSectionZero()], with: .left)
+				tableView.insertRows(at: [rowToRemove.indexPathSectionZero()], with: .left)
 			}
 		case .incorrect(let roundStatus):
 			if case .endOfGame(let score) = roundStatus {
 				print("END OF GAME : SCORE\(score)")
 				break
 			} else {
-				tableView.deleteRows(at: [IndexPath(row: CardsInPlayIndex.top.rawValue, section: 0)], with: .left)
-				tableView.deleteRows(at: [IndexPath(row: CardsInPlayIndex.bottom.rawValue, section: 0)], with: .left)
-				tableView.insertRows(at: [IndexPath(row: CardsInPlayIndex.top.rawValue, section: 0)], with: .left)
-				tableView.insertRows(at: [IndexPath(row: CardsInPlayIndex.bottom.rawValue, section: 0)], with: .left)
+				let indexPathsForChanges = [CardsInPlayIndex.top.indexPathSectionZero(), CardsInPlayIndex.bottom.indexPathSectionZero()]
+				tableView.deleteRows(at: indexPathsForChanges, with: .left)
+				tableView.insertRows(at: indexPathsForChanges, with: .left)
 			}
 		}
 		tableView.endUpdates()

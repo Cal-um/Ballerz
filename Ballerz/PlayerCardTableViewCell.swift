@@ -10,6 +10,7 @@ import UIKit
 
 class PlayerCardTableViewCell: UITableViewCell {
 
+	@IBOutlet weak var blurImage: UIImageView!
 	@IBOutlet weak var roundedBackgroundView: UIView!
 	@IBOutlet weak var playerImage: NetworkImageView!
 	@IBOutlet weak var playerName: UILabel!
