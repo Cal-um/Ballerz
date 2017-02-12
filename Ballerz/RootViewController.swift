@@ -15,7 +15,7 @@ class RootViewController: UITableViewController {
 	override func viewDidLoad() {
 		tableView.isScrollEnabled = false
 		tableView.separatorStyle = .none
-		tableView.separatorInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+		//tableView.separatorInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
 		self.tableView.register(UINib(nibName: "PlayerCardTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
 		web()
 	}
@@ -39,26 +39,15 @@ class RootViewController: UITableViewController {
 
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let cell = self.tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? PlayerCardTableViewCell else { fatalError("Wrong cell type") }
+		guard let cardsInPlay = game.currentCardsInPlay else { fatalError("Cards not dealt within game") }
 
 		switch indexPath.row {
 		case 0:
-			let player = game.currentCardsInPlay!.0
-			cell.playerName.text = player.name
-			cell.playerImage.loadImageUsingUrlString(urlString: player.picURL)
-			cell.pointsLabel.text = player.pointsForCard()
-			cell.roundedBackgroundView.layer.cornerRadius = 20
-			cell.pointsLabel.isHidden = true
-			cell.blurImage.isHidden = false
+			cell.configureCellWith(player: cardsInPlay.0)
 		case 1:
-			let player = game.currentCardsInPlay!.1
-			cell.playerName.text = player.name
-			cell.playerImage.loadImageUsingUrlString(urlString: player.picURL)
-			cell.pointsLabel.text = player.pointsForCard()
-			cell.roundedBackgroundView.layer.cornerRadius = 20
-			cell.pointsLabel.isHidden = true
-			cell.blurImage.isHidden = false
+			cell.configureCellWith(player: cardsInPlay.1)
 		default:
-			fatalError("incorrect")
+			fatalError("incorrect index")
 		}
 		return cell
 	}

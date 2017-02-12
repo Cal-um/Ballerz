@@ -15,4 +15,13 @@ class PlayerCardTableViewCell: UITableViewCell {
 	@IBOutlet weak var playerImage: NetworkImageView!
 	@IBOutlet weak var playerName: UILabel!
 	@IBOutlet weak var pointsLabel: UILabel!
+
+	func configureCellWith(player: PlayerModel) {
+		blurImage.isHidden = false
+		pointsLabel.isHidden = true
+		roundedBackgroundView.layer.cornerRadius = 20
+		playerImage.loadImageUsingUrlString(urlString: player.picURL)
+		pointsLabel.text = player.pointsForCard()
+		playerName.text = player.name
+	}
 }
