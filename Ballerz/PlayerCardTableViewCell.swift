@@ -24,4 +24,9 @@ class PlayerCardTableViewCell: UITableViewCell {
 		pointsLabel.text = player.pointsForCard()
 		playerName.text = player.name
 	}
+
+	func showPoints() {
+		blurImage.isHidden = true
+		pointsLabel.isHidden = false
+	}
 }
