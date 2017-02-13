@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
 		window = window ?? UIWindow()
-		window?.rootViewController = GameViewController()
+		window?.rootViewController = RootPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
 		window?.backgroundColor = .blue
 		window?.makeKeyAndVisible()
 		return true
