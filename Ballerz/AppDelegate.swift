@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			app = App(window: window)
 		}
 		window?.makeKeyAndVisible()
+
+		MusicPlayer.shared.playRKelly()
 		return true
 	}
 }

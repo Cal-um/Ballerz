@@ -92,6 +92,10 @@ class GameViewController: UIViewController {
 
 		})
 	}
+
+	deinit {
+		print("GameViewController DEINIT")
+	}
 }
 
 extension GameViewController: GameView {
@@ -111,7 +115,7 @@ extension GameViewController: GameView {
 
 		pointsAnimateConstraint.constant = -300
 
-		UIView.animate(withDuration: 0.5, animations: {
+		UIView.animate(withDuration: 0.75, delay: 0, options: .curveEaseOut, animations: {
 			self.view.layoutIfNeeded()
 		}, completion: { _ in
 			self.pointsAnimateLabel.isHidden = true

@@ -30,6 +30,8 @@
 		3AEC5BEE1E52773600493431 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC5BED1E52773600493431 /* App.swift */; };
 		3AEC5BF01E527D9300493431 /* StartGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC5BEF1E527D9300493431 /* StartGameView.swift */; };
 		3AEC5BF21E528E1800493431 /* RootPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC5BF11E528E1800493431 /* RootPageView.swift */; };
+		3AEC5BF41E529F1000493431 /* ICanFly.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3AEC5BF31E529F1000493431 /* ICanFly.mp3 */; };
+		3AEC5BF71E52A03C00493431 /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC5BF61E52A03C00493431 /* MusicPlayer.swift */; };
 		3AFFFD021E4B76CF00205E17 /* MutableCollection+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFFD011E4B76CF00205E17 /* MutableCollection+Sequence.swift */; };
 		3AFFFD051E4C769500205E17 /* GuessingGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFFD041E4C769500205E17 /* GuessingGameTests.swift */; };
 		3AFFFD081E4D347900205E17 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFFD071E4D347900205E17 /* WebService.swift */; };
@@ -78,6 +80,8 @@
 		3AEC5BED1E52773600493431 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		3AEC5BEF1E527D9300493431 /* StartGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartGameView.swift; sourceTree = "<group>"; };
 		3AEC5BF11E528E1800493431 /* RootPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootPageView.swift; sourceTree = "<group>"; };
+		3AEC5BF31E529F1000493431 /* ICanFly.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ICanFly.mp3; sourceTree = "<group>"; };
+		3AEC5BF61E52A03C00493431 /* MusicPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
 		3AFFFD011E4B76CF00205E17 /* MutableCollection+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MutableCollection+Sequence.swift"; sourceTree = "<group>"; };
 		3AFFFD041E4C769500205E17 /* GuessingGameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessingGameTests.swift; sourceTree = "<group>"; };
 		3AFFFD071E4D347900205E17 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 				3AFFFD031E4B879600205E17 /* Models */,
 				3AEC5BD21E50EBF300493431 /* Presenters */,
 				3AFFFD0D1E4DCB4600205E17 /* Views */,
+				3AEC5BF51E52A02000493431 /* Music */,
 				3AFFFD001E4B769800205E17 /* Extensions */,
 				3A57381B1E4B1940002E688B /* Assets.xcassets */,
 				3A57381D1E4B1940002E688B /* LaunchScreen.storyboard */,
@@ -187,6 +192,15 @@
 				3AFFFD0E1E4DCB7500205E17 /* PlayerCardTableViewCell.xib */,
 			);
 			name = NIBs;
+			sourceTree = "<group>";
+		};
+		3AEC5BF51E52A02000493431 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				3AEC5BF31E529F1000493431 /* ICanFly.mp3 */,
+				3AEC5BF61E52A03C00493431 /* MusicPlayer.swift */,
+			);
+			name = Music;
 			sourceTree = "<group>";
 		};
 		3AFFFD001E4B769800205E17 /* Extensions */ = {
@@ -318,6 +332,7 @@
 				3AEC5BDC1E51B58C00493431 /* Leaderboard.xib in Resources */,
 				3A57381C1E4B1940002E688B /* Assets.xcassets in Resources */,
 				3AFFFD0F1E4DCB7500205E17 /* PlayerCardTableViewCell.xib in Resources */,
+				3AEC5BF41E529F1000493431 /* ICanFly.mp3 in Resources */,
 				3AEC5BD81E5111F400493431 /* GameViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,6 +369,7 @@
 			files = (
 				3AFFFD151E4DD52300205E17 /* NetworkImageView.swift in Sources */,
 				3AEC5BF21E528E1800493431 /* RootPageView.swift in Sources */,
+				3AEC5BF71E52A03C00493431 /* MusicPlayer.swift in Sources */,
 				3A57383C1E4B5777002E688B /* GuessingGameModel.swift in Sources */,
 				3AEC5BE81E51B7B400493431 /* LeaderBoardViewController.swift in Sources */,
 				3AEC5BEC1E52653F00493431 /* StartGamePresenter.swift in Sources */,
