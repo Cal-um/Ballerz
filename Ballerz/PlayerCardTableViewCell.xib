@@ -17,7 +17,7 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="299" id="ZKD-9Q-1Hd" customClass="PlayerCardTableViewCell" customModule="Ballerz" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="468" height="299"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZKD-9Q-1Hd" id="aLc-H0-b3T">
+            <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZKD-9Q-1Hd" id="aLc-H0-b3T">
                 <rect key="frame" x="0.0" y="0.0" width="468" height="298"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -74,6 +74,7 @@
                         </constraints>
                     </imageView>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="kfk-N7-IDd" firstAttribute="leading" secondItem="ddJ-O5-7GM" secondAttribute="leading" id="2e7-NH-KIn"/>
                     <constraint firstItem="lHr-Eq-6CD" firstAttribute="trailing" secondItem="8jj-Mh-hKa" secondAttribute="trailing" constant="20" id="3vs-Jd-qaF"/>
@@ -112,6 +113,7 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="blurImage" destination="Eh4-2P-Pte" id="vCW-87-I72"/>
                 <outlet property="playerImage" destination="ddJ-O5-7GM" id="bMX-dL-ju8"/>

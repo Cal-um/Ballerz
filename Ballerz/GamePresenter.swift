@@ -11,7 +11,7 @@ import UIKit
 class GamePresenter: NSObject {
 
 	var game: GuessingGame? = nil
-	weak var gameView: GameView?
+	unowned let gameView: GameView
 
 	init(gameView: GameView) {
 		self.gameView = gameView
@@ -25,11 +25,11 @@ class GamePresenter: NSObject {
 				DispatchQueue.main.async {
 					let model = GuessingGameModel(players: players)
 					self.game = GuessingGame(model: model)
-					self.gameView?.beginGame()
+					self.gameView.beginGame()
 				}
 			case .failure(let error):
 				if case .noInternetConnection = error {
-					self.gameView?.noInternetConnection()
+					self.gameView.noInternetConnection()
 				}
 			}
 		}
@@ -72,10 +72,10 @@ extension GamePresenter: UITableViewDataSource, UITableViewDelegate {
 
 		switch game.processRound(choice: cardIndex) {
 		case .correct(let rowToRemove, let roundStatus):
-			gameView?.anumatePointsChange(answer: true)
+			gameView.anumatePointsChange(answer: true)
 			if case .endOfGame(let score) = roundStatus {
 				print("END OF GAME : SCORE\(score)")
-				gameView?.gameEnded(score: score)
+				gameView.gameEnded(score: score)
 				break
 			} else {
 				print(rowToRemove.rawValue)
@@ -83,19 +83,19 @@ extension GamePresenter: UITableViewDataSource, UITableViewDelegate {
 				correctCell.showPoints()
 				tableView.deleteRows(at: [rowToRemove.indexPathSectionZero()], with: .left)
 				tableView.insertRows(at: [rowToRemove.indexPathSectionZero()], with: .left)
-				gameView?.newRound(round: game.model.currentRound, score: game.model.currentScore)
+				gameView.newRound(round: game.model.currentRound, score: game.model.currentScore)
 			}
 		case .incorrect(let roundStatus):
-			gameView?.anumatePointsChange(answer: false)
+			gameView.anumatePointsChange(answer: false)
 			if case .endOfGame(let score) = roundStatus {
 				print("END OF GAME : SCORE\(score)")
-				gameView?.gameEnded(score: score)
+				gameView.gameEnded(score: score)
 				break
 			} else {
 				let indexPathsForChanges = [CardsInPlayIndex.top.indexPathSectionZero(), CardsInPlayIndex.bottom.indexPathSectionZero()]
 				tableView.deleteRows(at: indexPathsForChanges, with: .left)
 				tableView.insertRows(at: indexPathsForChanges, with: .left)
-				gameView?.newRound(round: game.model.currentRound, score: game.model.currentScore)
+				gameView.newRound(round: game.model.currentRound, score: game.model.currentScore)
 
 			}
 		}

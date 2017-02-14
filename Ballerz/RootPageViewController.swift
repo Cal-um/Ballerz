@@ -11,7 +11,7 @@ import UIKit
 
 class RootPageViewController: UIPageViewController {
 
-	let pageViewPresenter = PageViewPresenter()
+	var presenter: PageViewPresenter!
 
 	let topCloud: UIImageView = {
 		let cloud = UIImageView()
@@ -44,7 +44,7 @@ class RootPageViewController: UIPageViewController {
 	let soundButton: UIButton = {
 		let butt = UIButton()
 		butt.setImage(UIImage(named: "Sound_On"), for: .normal)
-		butt.addTarget(self, action: #selector(RootPageViewController.tappedButton), for: .touchUpInside)
+		butt.addTarget(self, action: #selector(RootPageViewController.tappedSoundButton), for: .touchUpInside)
 		butt.translatesAutoresizingMaskIntoConstraints = false
 		return butt
 	}()
@@ -55,8 +55,8 @@ class RootPageViewController: UIPageViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.setViewControllers([pageViewPresenter.firstVC], direction: .forward, animated: false, completion: nil)
-		self.dataSource = pageViewPresenter
+		self.setViewControllers([presenter.firstVC], direction: .forward, animated: false, completion: nil)
+		self.dataSource = presenter
 		view.backgroundColor = UIColor.backgroundBlue()
 		addSubviews()
 		setupInitialConstraints()
@@ -72,7 +72,7 @@ class RootPageViewController: UIPageViewController {
 		}
 	}
 
-	func tappedButton() {
+	func tappedSoundButton() {
 		print("tapped!!!")
 	}
 
@@ -134,5 +134,12 @@ class RootPageViewController: UIPageViewController {
 		UIView.animate(withDuration: 10, delay: 2, options: [.repeat, .curveLinear], animations: {
 			self.view.layoutIfNeeded()
 		}, completion: nil)
+	}
+}
+
+extension RootPageViewController: RootPageView {
+	func allViews(toHide toggle: Bool) {
+		ballerzLogo.isHidden = toggle
+		soundButton.isHidden = toggle
 	}
 }

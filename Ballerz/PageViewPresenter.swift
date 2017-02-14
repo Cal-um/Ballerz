@@ -8,13 +8,23 @@
 
 import UIKit
 
-class PageViewPresenter: NSObject, UIPageViewControllerDataSource {
+class PageViewPresenter: NSObject {
 
-	private(set) lazy var controllers = [StartGameViewController(), LeaderBoardViewController()]
+	let controllers: [UIViewController]
+	unowned let view: RootPageView
 
 	var firstVC: UIViewController {
 		return controllers[0]
 	}
+
+	init(controllers: [UIViewController], view: RootPageView) {
+		self.controllers = controllers
+		self.view = view
+	}
+
+}
+
+extension PageViewPresenter: UIPageViewControllerDataSource {
 
 	func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
 		guard let viewControllerIdx = controllers.index(of: viewController) else { return nil }

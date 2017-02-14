@@ -26,6 +26,10 @@
 		3AEC5BE41E51B77500493431 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC5BE31E51B77500493431 /* Extensions.swift */; };
 		3AEC5BE61E51B79300493431 /* StartGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC5BE51E51B79300493431 /* StartGameViewController.swift */; };
 		3AEC5BE81E51B7B400493431 /* LeaderBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC5BE71E51B7B400493431 /* LeaderBoardViewController.swift */; };
+		3AEC5BEC1E52653F00493431 /* StartGamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC5BEB1E52653F00493431 /* StartGamePresenter.swift */; };
+		3AEC5BEE1E52773600493431 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC5BED1E52773600493431 /* App.swift */; };
+		3AEC5BF01E527D9300493431 /* StartGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC5BEF1E527D9300493431 /* StartGameView.swift */; };
+		3AEC5BF21E528E1800493431 /* RootPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC5BF11E528E1800493431 /* RootPageView.swift */; };
 		3AFFFD021E4B76CF00205E17 /* MutableCollection+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFFD011E4B76CF00205E17 /* MutableCollection+Sequence.swift */; };
 		3AFFFD051E4C769500205E17 /* GuessingGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFFD041E4C769500205E17 /* GuessingGameTests.swift */; };
 		3AFFFD081E4D347900205E17 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFFD071E4D347900205E17 /* WebService.swift */; };
@@ -70,6 +74,10 @@
 		3AEC5BE31E51B77500493431 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3AEC5BE51E51B79300493431 /* StartGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartGameViewController.swift; sourceTree = "<group>"; };
 		3AEC5BE71E51B7B400493431 /* LeaderBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewController.swift; sourceTree = "<group>"; };
+		3AEC5BEB1E52653F00493431 /* StartGamePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartGamePresenter.swift; sourceTree = "<group>"; };
+		3AEC5BED1E52773600493431 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		3AEC5BEF1E527D9300493431 /* StartGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartGameView.swift; sourceTree = "<group>"; };
+		3AEC5BF11E528E1800493431 /* RootPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootPageView.swift; sourceTree = "<group>"; };
 		3AFFFD011E4B76CF00205E17 /* MutableCollection+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MutableCollection+Sequence.swift"; sourceTree = "<group>"; };
 		3AFFFD041E4C769500205E17 /* GuessingGameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessingGameTests.swift; sourceTree = "<group>"; };
 		3AFFFD071E4D347900205E17 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
@@ -120,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				3A5738141E4B1940002E688B /* AppDelegate.swift */,
+				3AEC5BED1E52773600493431 /* App.swift */,
 				3AFFFD061E4D346400205E17 /* Client */,
 				3AFFFD031E4B879600205E17 /* Models */,
 				3AEC5BD21E50EBF300493431 /* Presenters */,
@@ -149,6 +158,9 @@
 				3AEC5BE11E51B74E00493431 /* PageViewPresenter.swift */,
 				3AEC5BD31E50EC3E00493431 /* GamePresenter.swift */,
 				3AEC5BD51E50FD6900493431 /* GameView.swift */,
+				3AEC5BEB1E52653F00493431 /* StartGamePresenter.swift */,
+				3AEC5BEF1E527D9300493431 /* StartGameView.swift */,
+				3AEC5BF11E528E1800493431 /* RootPageView.swift */,
 			);
 			name = Presenters;
 			sourceTree = "<group>";
@@ -341,8 +353,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AFFFD151E4DD52300205E17 /* NetworkImageView.swift in Sources */,
+				3AEC5BF21E528E1800493431 /* RootPageView.swift in Sources */,
 				3A57383C1E4B5777002E688B /* GuessingGameModel.swift in Sources */,
 				3AEC5BE81E51B7B400493431 /* LeaderBoardViewController.swift in Sources */,
+				3AEC5BEC1E52653F00493431 /* StartGamePresenter.swift in Sources */,
 				3AEC5BE21E51B74E00493431 /* PageViewPresenter.swift in Sources */,
 				3AFFFD081E4D347900205E17 /* WebService.swift in Sources */,
 				3A57383A1E4B2123002E688B /* PlayerModel.swift in Sources */,
@@ -351,6 +365,7 @@
 				3AEC5BDE1E51B5AF00493431 /* LeaderboardStackView.swift in Sources */,
 				3AFFFD021E4B76CF00205E17 /* MutableCollection+Sequence.swift in Sources */,
 				3AFFFD0A1E4D350E00205E17 /* DownloadPlayerConvenience.swift in Sources */,
+				3AEC5BEE1E52773600493431 /* App.swift in Sources */,
 				3AEC5BD61E50FD6900493431 /* GameView.swift in Sources */,
 				3AEC5BD41E50EC3E00493431 /* GamePresenter.swift in Sources */,
 				3A5738421E4B5F29002E688B /* GuessingGame.swift in Sources */,
@@ -359,6 +374,7 @@
 				3AEC5BE41E51B77500493431 /* Extensions.swift in Sources */,
 				3A5738151E4B1940002E688B /* AppDelegate.swift in Sources */,
 				3AFFFD0C1E4DB78C00205E17 /* Constants.swift in Sources */,
+				3AEC5BF01E527D9300493431 /* StartGameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

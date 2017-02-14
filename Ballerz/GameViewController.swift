@@ -10,7 +10,7 @@ import UIKit
 
 class GameViewController: UIViewController {
 
-	var gamePresenter: GamePresenter?
+	var gamePresenter: GamePresenter!
 	var	basketBallConstraints: [NSLayoutConstraint]?
 	@IBOutlet weak var roundsLabel: UILabel!
 	@IBOutlet weak var tableView: UITableView!
@@ -23,8 +23,7 @@ class GameViewController: UIViewController {
 	@IBOutlet weak var pointsAnimateConstraint: NSLayoutConstraint!
 
 	override func viewDidLoad() {
-		gamePresenter = GamePresenter(gameView: self)
-		gamePresenter?.downloadPlayers()
+		gamePresenter.downloadPlayers()
 		basketBallConstraints = createConstrToBeAnimated()
 		configureTableView()
 		preGameLayout()

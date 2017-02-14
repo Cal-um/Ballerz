@@ -10,6 +10,9 @@ import UIKit
 
 class StartGameViewController: UIViewController {
 
+	var presenter: StartGamePresenter!
+	var tapAction: () -> () = {}
+
 	let ballImageView: UIImageView = {
 		let imageView = UIImageView()
 		imageView.image = UIImage(named: "BasketBall")
@@ -22,7 +25,7 @@ class StartGameViewController: UIViewController {
 		button.setImage(UIImage(named: "StartButtonNormal"), for: .normal)
 		button.imageView?.contentMode = .scaleAspectFit
 		button.translatesAutoresizingMaskIntoConstraints = false
-		button.addTarget(self, action: #selector(StartGameViewController.didTapStartButton), for: .touchUpInside)
+		button.addTarget(self, action: #selector(StartGameViewController.tappedStartButton), for: .touchUpInside)
 		return button
 	}()
 
@@ -56,7 +59,17 @@ class StartGameViewController: UIViewController {
 		view.layoutIfNeeded()
 	}
 
-	func didTapStartButton() {
-		print("tapped")
+	func tappedStartButton() {
+		presenter.didTapStartButton()
+		tapAction()
+
+	}
+}
+
+extension StartGameViewController: StartGameView {
+
+	func allViews(toHide toggle: Bool) {
+		ballImageView.isHidden = toggle
+		startButton.isHidden = toggle
 	}
 }
