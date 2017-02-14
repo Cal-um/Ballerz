@@ -26,11 +26,12 @@ class GameViewController: UIViewController {
 		gamePresenter.downloadPlayers()
 		basketBallConstraints = createConstrToBeAnimated()
 		configureTableView()
+		gamePresenter.isMusicPlayingForImage()
 		preGameLayout()
 	}
 
 	@IBAction func tapSoundButton(_ sender: Any) {
-
+		gamePresenter.toggleSound()
 	}
 
 	@IBAction func tapBackButton(_ sender: Any) {
@@ -142,5 +143,13 @@ extension GameViewController: GameView {
 
 	func noInternetConnection() {
 		 print("no internet connection detected")
+	}
+
+	func toggleSoundButtonImage(musicIsOn: Bool) {
+		if musicIsOn {
+			soundButton.setImage(UIImage(named:"Sound_On"), for: .normal)
+		} else {
+			soundButton.setImage(UIImage(named: "Sound_Mute"), for: .normal)
+		}
 	}
 }

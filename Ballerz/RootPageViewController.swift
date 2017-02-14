@@ -70,15 +70,14 @@ class RootPageViewController: UIPageViewController {
 				(view as! UIScrollView).delaysContentTouches = false
 			}
 		}
-		print("view appeared")
 	}
 
 	func tappedSoundButton() {
 		presenter.toggleSound()
 	}
 
-	func toggleSoundButtonImage(on: Bool) {
-		if on {
+	func toggleSoundButtonImage(musicIsOn: Bool) {
+		if musicIsOn {
 			soundButton.setImage(UIImage(named:"Sound_On"), for: .normal)
 		} else {
 			soundButton.setImage(UIImage(named: "Sound_Mute"), for: .normal)

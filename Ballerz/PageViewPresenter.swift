@@ -31,20 +31,30 @@ class PageViewPresenter: NSObject {
 
 	func showViews() {
 		view.allViews(toHide: false)
+		isMusicPlayingForImage()
 	}
 
 	func hideViews() {
 		view.allViews(toHide: true)
+	}
+	
+	func isMusicPlayingForImage() {
+		let music = MusicPlayer.shared
+		if music.isRKellyPlaying() {
+			view.toggleSoundButtonImage(musicIsOn: true)
+		} else {
+			view.toggleSoundButtonImage(musicIsOn: false)
+		}
 	}
 
 	func toggleSound() {
 		let music = MusicPlayer.shared
 		if music.isRKellyPlaying() {
 			music.stopRKelly()
-			view.toggleSoundButtonImage(on: false)
+			view.toggleSoundButtonImage(musicIsOn: false)
 		} else {
 			music.resumeRKelly()
-			view.toggleSoundButtonImage(on: true)
+			view.toggleSoundButtonImage(musicIsOn: true)
 		}
 	}
 }

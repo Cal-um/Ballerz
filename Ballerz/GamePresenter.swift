@@ -35,6 +35,26 @@ class GamePresenter: NSObject {
 		}
 	}
 
+	func isMusicPlayingForImage() {
+		let music = MusicPlayer.shared
+		if music.isRKellyPlaying() {
+			gameView.toggleSoundButtonImage(musicIsOn: true)
+		} else {
+			gameView.toggleSoundButtonImage(musicIsOn: false)
+		}
+	}
+
+	func toggleSound() {
+		let music = MusicPlayer.shared
+		if music.isRKellyPlaying() {
+			music.stopRKelly()
+			gameView.toggleSoundButtonImage(musicIsOn: false)
+		} else {
+			music.resumeRKelly()
+			gameView.toggleSoundButtonImage(musicIsOn: true)
+		}
+	}
+
 	func backButtonTapped() {
 		NotificationCenter.default.post(name: Notification.Name(Const.NotificationIDs.ShowViews), object: nil)
 	}
