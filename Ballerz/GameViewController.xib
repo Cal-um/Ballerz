@@ -78,7 +78,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4No-Ut-Rfj">
-                    <rect key="frame" x="220.5" y="537.5" width="47" height="15.5"/>
+                    <rect key="frame" x="220.5" y="539.5" width="47" height="15.5"/>
                     <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -92,7 +92,6 @@
                 </button>
             </subviews>
             <constraints>
-                <constraint firstItem="4No-Ut-Rfj" firstAttribute="bottom" secondItem="Z3j-SP-leT" secondAttribute="bottom" constant="15" id="5dT-f0-eCp"/>
                 <constraint firstAttribute="trailing" secondItem="Djs-o1-LNo" secondAttribute="trailing" id="82f-lB-DpF"/>
                 <constraint firstItem="0oy-2c-bQP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="9U8-KU-0Ym"/>
                 <constraint firstItem="Djs-o1-LNo" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.6" id="C86-iw-JSd"/>
@@ -102,6 +101,7 @@
                 <constraint firstItem="4No-Ut-Rfj" firstAttribute="centerX" secondItem="G4D-a2-7cM" secondAttribute="centerX" id="TMe-0b-ERQ"/>
                 <constraint firstItem="o5D-8T-GrS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Yjs-kn-8ns"/>
                 <constraint firstItem="Qgd-eq-J24" firstAttribute="centerX" secondItem="G4D-a2-7cM" secondAttribute="centerX" id="bGc-qm-nbo"/>
+                <constraint firstItem="4No-Ut-Rfj" firstAttribute="top" secondItem="Z3j-SP-leT" secondAttribute="bottom" constant="3" id="dWQ-Ha-qsd"/>
                 <constraint firstItem="Djs-o1-LNo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="i7d-5M-f6Q"/>
                 <constraint firstItem="o5D-8T-GrS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="k6t-bA-PWo"/>
                 <constraint firstItem="0oy-2c-bQP" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.1" id="lgD-dN-bCm"/>

@@ -5,6 +5,7 @@
 //  Created by Calum Harris on 06/02/2017.
 //  Copyright © 2017 Calum Harris. All rights reserved.
 //
+// swiftlint:disable force_try
 
 import UIKit
 
@@ -38,5 +39,12 @@ extension UIColor {
 
 	static func leaderboardBlue() -> UIColor {
 		return UIColor(red: 73/255, green: 135/255, blue: 183/255, alpha: 0.5)
+	}
+}
+
+extension URL {
+
+	static var documentsURL: URL {
+		return try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
 	}
 }

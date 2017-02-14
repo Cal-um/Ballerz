@@ -16,6 +16,9 @@
 		3A5738421E4B5F29002E688B /* GuessingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5738411E4B5F29002E688B /* GuessingGame.swift */; };
 		3A5738441E4B6084002E688B /* GuessingGameModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5738431E4B6084002E688B /* GuessingGameModelTests.swift */; };
 		3A92A4521E53231C007F9FB8 /* ICanFly.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A92A4511E53231C007F9FB8 /* ICanFly.mp3 */; };
+		3A92A4541E53489D007F9FB8 /* ScoreboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A92A4531E53489D007F9FB8 /* ScoreboardModel.swift */; };
+		3A92A4561E534919007F9FB8 /* HighScoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A92A4551E534919007F9FB8 /* HighScoreModel.swift */; };
+		3A92A4581E536AAD007F9FB8 /* LeaderBoardModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A92A4571E536AAD007F9FB8 /* LeaderBoardModelTests.swift */; };
 		3AEC5BD11E50EB0800493431 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC5BD01E50EB0800493431 /* GameViewController.swift */; };
 		3AEC5BD41E50EC3E00493431 /* GamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC5BD31E50EC3E00493431 /* GamePresenter.swift */; };
 		3AEC5BD61E50FD6900493431 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC5BD51E50FD6900493431 /* GameView.swift */; };
@@ -66,6 +69,9 @@
 		3A5738411E4B5F29002E688B /* GuessingGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessingGame.swift; sourceTree = "<group>"; };
 		3A5738431E4B6084002E688B /* GuessingGameModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessingGameModelTests.swift; sourceTree = "<group>"; };
 		3A92A4511E53231C007F9FB8 /* ICanFly.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ICanFly.mp3; sourceTree = "<group>"; };
+		3A92A4531E53489D007F9FB8 /* ScoreboardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardModel.swift; sourceTree = "<group>"; };
+		3A92A4551E534919007F9FB8 /* HighScoreModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreModel.swift; sourceTree = "<group>"; };
+		3A92A4571E536AAD007F9FB8 /* LeaderBoardModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderBoardModelTests.swift; sourceTree = "<group>"; };
 		3AEC5BD01E50EB0800493431 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		3AEC5BD31E50EC3E00493431 /* GamePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamePresenter.swift; sourceTree = "<group>"; };
 		3AEC5BD51E50FD6900493431 /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -150,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				3A57382B1E4B1940002E688B /* Info.plist */,
+				3A92A4571E536AAD007F9FB8 /* LeaderBoardModelTests.swift */,
 				3A5738371E4B2088002E688B /* PlayerModelTests.swift */,
 				3AFFFD041E4C769500205E17 /* GuessingGameTests.swift */,
 				3A5738431E4B6084002E688B /* GuessingGameModelTests.swift */,
@@ -216,6 +223,8 @@
 			isa = PBXGroup;
 			children = (
 				3A5738411E4B5F29002E688B /* GuessingGame.swift */,
+				3A92A4531E53489D007F9FB8 /* ScoreboardModel.swift */,
+				3A92A4551E534919007F9FB8 /* HighScoreModel.swift */,
 				3A57383B1E4B5777002E688B /* GuessingGameModel.swift */,
 				3A5738391E4B2123002E688B /* PlayerModel.swift */,
 				3AFFFD0B1E4DB78C00205E17 /* Constants.swift */,
@@ -375,6 +384,7 @@
 				3AEC5BEC1E52653F00493431 /* StartGamePresenter.swift in Sources */,
 				3AEC5BE21E51B74E00493431 /* PageViewPresenter.swift in Sources */,
 				3AFFFD081E4D347900205E17 /* WebService.swift in Sources */,
+				3A92A4541E53489D007F9FB8 /* ScoreboardModel.swift in Sources */,
 				3A57383A1E4B2123002E688B /* PlayerModel.swift in Sources */,
 				3AEC5BE61E51B79300493431 /* StartGameViewController.swift in Sources */,
 				3AEC5BD11E50EB0800493431 /* GameViewController.swift in Sources */,
@@ -386,6 +396,7 @@
 				3AEC5BD41E50EC3E00493431 /* GamePresenter.swift in Sources */,
 				3A5738421E4B5F29002E688B /* GuessingGame.swift in Sources */,
 				3AFFFD111E4DCB9E00205E17 /* PlayerCardTableViewCell.swift in Sources */,
+				3A92A4561E534919007F9FB8 /* HighScoreModel.swift in Sources */,
 				3AEC5BE01E51B71600493431 /* RootPageViewController.swift in Sources */,
 				3AEC5BE41E51B77500493431 /* Extensions.swift in Sources */,
 				3A5738151E4B1940002E688B /* AppDelegate.swift in Sources */,
@@ -401,6 +412,7 @@
 				3AFFFD051E4C769500205E17 /* GuessingGameTests.swift in Sources */,
 				3A5738441E4B6084002E688B /* GuessingGameModelTests.swift in Sources */,
 				3A5738381E4B2088002E688B /* PlayerModelTests.swift in Sources */,
+				3A92A4581E536AAD007F9FB8 /* LeaderBoardModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
