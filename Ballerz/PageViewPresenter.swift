@@ -2,7 +2,7 @@
 //  PageViewPresenter.swift
 //  BallerTest
 //
-//  Created by Calum Harris on 06/02/2017.
+//  Created by Calum Harris on	13/02/2017.
 //  Copyright © 2017 Calum Harris. All rights reserved.
 //
 
@@ -37,7 +37,7 @@ class PageViewPresenter: NSObject {
 	func hideViews() {
 		view.allViews(toHide: true)
 	}
-	
+
 	func isMusicPlayingForImage() {
 		let music = MusicPlayer.shared
 		if music.isRKellyPlaying() {

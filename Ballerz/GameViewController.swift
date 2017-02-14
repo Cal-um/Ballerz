@@ -84,13 +84,16 @@ class GameViewController: UIViewController {
 			basketBall.widthAnchor.constraint(equalTo: basketBall.heightAnchor),
 			basketBall.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.4)
 			])
+		pointsLabel.isHidden = true
+		pointsNameLabel.isHidden = true
+		pointsLabel.font = UIFont(name: "menlo", size: 29)
+		pointsNameLabel.font = UIFont(name: "menlo", size: 19)
 
 		UIView.animate(withDuration: 2, animations: {
-			self.pointsLabel.font = UIFont(name: "menlo", size: 29)
-			self.pointsNameLabel.font = UIFont(name: "menlo", size: 19)
 			self.view.layoutIfNeeded()
 		}, completion: { _ in
-
+			self.pointsNameLabel.isHidden = false
+			self.pointsLabel.isHidden = false
 		})
 	}
 
