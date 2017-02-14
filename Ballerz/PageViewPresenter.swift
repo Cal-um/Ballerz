@@ -21,7 +21,19 @@ class PageViewPresenter: NSObject {
 		self.controllers = controllers
 		self.view = view
 	}
-
+	
+	func registerNotifications() {
+		NotificationCenter.default.addObserver(self, selector: #selector(PageViewPresenter.hideViews), name: Notification.Name(Const.NotificationIDs.HideViews), object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(PageViewPresenter.showViews), name: Notification.Name(Const.NotificationIDs.ShowViews), object: nil)
+	}
+	
+	func showViews() {
+		view.allViews(toHide: false)
+	}
+	
+	func hideViews() {
+		view.allViews(toHide: true)
+	}
 }
 
 extension PageViewPresenter: UIPageViewControllerDataSource {

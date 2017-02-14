@@ -57,6 +57,7 @@ class RootPageViewController: UIPageViewController {
 		super.viewDidLoad()
 		self.setViewControllers([presenter.firstVC], direction: .forward, animated: false, completion: nil)
 		self.dataSource = presenter
+		presenter.registerNotifications()
 		view.backgroundColor = UIColor.backgroundBlue()
 		addSubviews()
 		setupInitialConstraints()
@@ -139,6 +140,7 @@ class RootPageViewController: UIPageViewController {
 
 extension RootPageViewController: RootPageView {
 	func allViews(toHide toggle: Bool) {
+		print("TOGGLED /(toggle)")
 		ballerzLogo.isHidden = toggle
 		soundButton.isHidden = toggle
 	}

@@ -34,6 +34,10 @@ class GamePresenter: NSObject {
 			}
 		}
 	}
+	
+	func backButtonTapped() {
+		NotificationCenter.default.post(name: Notification.Name(Const.NotificationIDs.ShowViews), object: nil)
+	}
 }
 
 extension GamePresenter: UITableViewDataSource, UITableViewDelegate {

@@ -34,7 +34,7 @@ class GameViewController: UIViewController {
 	}
 
 	@IBAction func tapBackButton(_ sender: Any) {
-		print("back button tapped")
+		gamePresenter.backButtonTapped()
 		self.dismiss(animated: true, completion: nil)
 	}
 

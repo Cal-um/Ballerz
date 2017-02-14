@@ -17,10 +17,11 @@ class StartGamePresenter: NSObject {
 	}
 
 	func didTapStartButton() {
+		view.allViews(toHide: true)
 		NotificationCenter.default.post(name: Notification.Name(Const.NotificationIDs.HideViews), object: nil)
 	}
 
-	func viewLoaded() {
+	func registerNotifications() {
 		NotificationCenter.default.addObserver(self, selector: #selector(StartGamePresenter.showViews), name: Notification.Name(Const.NotificationIDs.ShowViews), object: nil)
 	}
 
