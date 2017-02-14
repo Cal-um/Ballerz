@@ -84,7 +84,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gh0-zk-5eS">
-                    <rect key="frame" x="28" y="603" width="49" height="44"/>
+                    <rect key="frame" x="18" y="603" width="49" height="44"/>
                     <state key="normal" image="Sound_On"/>
                     <connections>
                         <action selector="tapSoundButton:" destination="-1" eventType="touchUpInside" id="DN9-vb-7z6"/>
@@ -105,7 +105,7 @@
                 <constraint firstItem="Djs-o1-LNo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="i7d-5M-f6Q"/>
                 <constraint firstItem="o5D-8T-GrS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="k6t-bA-PWo"/>
                 <constraint firstItem="0oy-2c-bQP" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.1" id="lgD-dN-bCm"/>
-                <constraint firstItem="Gh0-zk-5eS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" constant="20" id="sDx-Ww-yOM"/>
+                <constraint firstItem="Gh0-zk-5eS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" constant="10" id="sDx-Ww-yOM"/>
                 <constraint firstItem="Qgd-eq-J24" firstAttribute="centerY" secondItem="G4D-a2-7cM" secondAttribute="centerY" id="vbB-n1-pQg"/>
                 <constraint firstAttribute="trailing" secondItem="0oy-2c-bQP" secondAttribute="trailing" id="w11-an-4mo"/>
                 <constraint firstItem="Djs-o1-LNo" firstAttribute="top" secondItem="0oy-2c-bQP" secondAttribute="bottom" constant="20" id="y78-iw-HMr"/>

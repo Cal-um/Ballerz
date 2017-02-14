@@ -14,6 +14,8 @@ class StartGamePresenter: NSObject {
 
 	init(view: StartGameView) {
 		self.view = view
+		super.init()
+		registerNotifications()
 	}
 
 	func didTapStartButton() {

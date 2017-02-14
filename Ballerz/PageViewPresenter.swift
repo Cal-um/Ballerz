@@ -20,6 +20,8 @@ class PageViewPresenter: NSObject {
 	init(controllers: [UIViewController], view: RootPageView) {
 		self.controllers = controllers
 		self.view = view
+		super.init()
+		registerNotifications()
 	}
 
 	func registerNotifications() {
@@ -33,6 +35,17 @@ class PageViewPresenter: NSObject {
 
 	func hideViews() {
 		view.allViews(toHide: true)
+	}
+
+	func toggleSound() {
+		let music = MusicPlayer.shared
+		if music.isRKellyPlaying() {
+			music.stopRKelly()
+			view.toggleSoundButtonImage(on: false)
+		} else {
+			music.resumeRKelly()
+			view.toggleSoundButtonImage(on: true)
+		}
 	}
 }
 
@@ -52,13 +65,4 @@ extension PageViewPresenter: UIPageViewControllerDataSource {
 		guard previousIdx >= 0 else { return nil }
 		return controllers[previousIdx]
 	}
-
-//	func presentationCount(for pageViewController: UIPageViewController) -> Int {
-//		return controllers.count
-//	}
-//
-//	func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-//		guard let firstVC = pageViewController.viewControllers?.first, let firstVCIdx = controllers.index(of: firstVC) else { return 0 }
-//		return firstVCIdx
-//	}
 }

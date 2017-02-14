@@ -32,7 +32,6 @@ class StartGameViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.view.backgroundColor = UIColor.clear
-		presenter.registerNotifications()
 		addSubviews()
 		setupConstraints()
 		ballImageView.startRotationContinuously(withDutation: 20)

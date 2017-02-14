@@ -57,7 +57,6 @@ class RootPageViewController: UIPageViewController {
 		super.viewDidLoad()
 		self.setViewControllers([presenter.firstVC], direction: .forward, animated: false, completion: nil)
 		self.dataSource = presenter
-		presenter.registerNotifications()
 		view.backgroundColor = UIColor.backgroundBlue()
 		addSubviews()
 		setupInitialConstraints()
@@ -71,10 +70,19 @@ class RootPageViewController: UIPageViewController {
 				(view as! UIScrollView).delaysContentTouches = false
 			}
 		}
+		print("view appeared")
 	}
 
 	func tappedSoundButton() {
-		print("tapped!!!")
+		presenter.toggleSound()
+	}
+
+	func toggleSoundButtonImage(on: Bool) {
+		if on {
+			soundButton.setImage(UIImage(named:"Sound_On"), for: .normal)
+		} else {
+			soundButton.setImage(UIImage(named: "Sound_Mute"), for: .normal)
+		}
 	}
 
 	func addSubviews() {

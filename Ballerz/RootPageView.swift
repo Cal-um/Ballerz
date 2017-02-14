@@ -10,4 +10,5 @@ import UIKit
 
 protocol RootPageView: class {
 	func allViews(toHide toggle: Bool)
+	func toggleSoundButtonImage(on: Bool)
 }
