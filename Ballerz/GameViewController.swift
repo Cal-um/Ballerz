@@ -168,7 +168,6 @@ extension GameViewController: GameView {
 		pointsLabel.text = String(score)
 		postGameLayout()
 		animateEndOfGameScore()
-		print(score)
 	}
 
 	func noInternetConnection() {

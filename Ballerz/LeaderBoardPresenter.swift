@@ -18,11 +18,6 @@ class LeaderBoardPresenter {
 
 	func loadScores() {
 		let scoreBoard = ScoreboardModel.loadHighScores()?.getHighScoresSorted()
-		if let _ = scoreBoard {
-			print("NUMBER OF SCORES \(scoreBoard?.count)")
-		} else {
-			print("nothing loaded")
-		}
 		view.boardStackView.configureWith(model: scoreBoard ?? [HighScoreModel]())
 	}
 

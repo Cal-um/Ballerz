@@ -147,7 +147,6 @@ class RootPageViewController: UIPageViewController {
 
 extension RootPageViewController: RootPageView {
 	func allViews(toHide toggle: Bool) {
-		print("TOGGLED /(toggle)")
 		ballerzLogo.isHidden = toggle
 		soundButton.isHidden = toggle
 	}

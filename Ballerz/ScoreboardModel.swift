@@ -45,11 +45,8 @@ class ScoreboardModel: NSObject, NSCoding {
 		} else {
 			highScores.append(new)
 		}
-		for i in highScores {
-			print(i.score)
-		}
-		let resultBool = saveScoreBoard()
-		print(resultBool)
+
+		let _ = saveScoreBoard()
 	}
 
 	func saveScoreBoard() -> Bool {

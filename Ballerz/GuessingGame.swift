@@ -39,10 +39,8 @@ final class GuessingGame {
 
 			switch choice {
 			case .top:
-				print("TOP")
 				return .correct(remove: .bottom, roundStatus)
 			case .bottom:
-				print("BOTTOM")
 				return .correct(remove: .top, roundStatus)
 			}
 

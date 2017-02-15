@@ -93,7 +93,6 @@ extension GamePresenter: UITableViewDataSource, UITableViewDelegate {
 	}
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		print("pressed")
 		tableView.deselectRow(at: indexPath, animated: true)
 		tableView.beginUpdates()
 
@@ -110,7 +109,6 @@ extension GamePresenter: UITableViewDataSource, UITableViewDelegate {
 				gameView.gameEnded(score: score)
 				break
 			} else {
-				print(rowToRemove.rawValue)
 				guard let correctCell = tableView.cellForRow(at: rowToRemove.opposite().indexPathSectionZero()) as? PlayerCardTableViewCell else { fatalError("Wrong cell type") }
 				correctCell.showPoints()
 				tableView.deleteRows(at: [rowToRemove.indexPathSectionZero()], with: .left)

@@ -20,11 +20,10 @@ class HighScoreModel: NSObject, NSCoding {
 	func encode(with aCoder: NSCoder) {
 		aCoder.encode(self.name, forKey: "name")
 		aCoder.encode(self.score, forKey: "score")
-		print("encoded")
 	}
 
 	required convenience init?(coder: NSCoder) {
-		guard let name = coder.decodeObject(forKey: "name") as? String else { print("fail1"); return nil }
+		guard let name = coder.decodeObject(forKey: "name") as? String else { return nil }
 		let score = coder.decodeInteger(forKey: "score")
 		self.init(name: name, score: score)
 	}

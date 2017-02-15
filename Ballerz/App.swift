@@ -9,6 +9,8 @@
 import UIKit
 
 class App {
+	
+	// This is where the app is assembled. The idea is to keep view controllers unaware of eachother and configure the classes in a MVP pattern.
 
 	init(window: UIWindow) {
 		window.rootViewController = setInitialViewController()
