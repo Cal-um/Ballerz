@@ -42,6 +42,7 @@ class LeaderBoardModelTests: XCTestCase {
 		leaderBoardModelFull.insertNewHighScore(new: newScore16)
 		XCTAssert(leaderBoardModelFull.highScores.contains(newScore16))
 		XCTAssert(!leaderBoardModelFull.highScores.contains(where: { $0.score == 5 }))
+		XCTAssert(leaderBoardModelFull.highScores.count == 5)
 		leaderBoardModelFull.insertNewHighScore(new: newScore40)
 		XCTAssert(leaderBoardModelFull.highScores.contains(newScore40))
 		XCTAssert(!leaderBoardModelFull.highScores.contains(where: { $0.score == 12 }))

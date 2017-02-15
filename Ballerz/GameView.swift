@@ -15,4 +15,5 @@ protocol GameView: class {
 	func noInternetConnection()
 	func anumatePointsChange(answer: Bool)
 	func toggleSoundButtonImage(musicIsOn: Bool)
+	func displayHighScoreAlert(score: Int)
 }

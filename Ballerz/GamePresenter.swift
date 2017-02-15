@@ -12,9 +12,11 @@ class GamePresenter: NSObject {
 
 	var game: GuessingGame? = nil
 	unowned let gameView: GameView
+	let scoreBoard: ScoreboardModel
 
 	init(gameView: GameView) {
 		self.gameView = gameView
+		scoreBoard = ScoreboardModel.loadHighScores() ?? ScoreboardModel()
 	}
 
 	func downloadPlayers() {
@@ -58,6 +60,10 @@ class GamePresenter: NSObject {
 	func backButtonTapped() {
 		NotificationCenter.default.post(name: Notification.Name(Const.NotificationIDs.ShowViews), object: nil)
 	}
+
+	func logHighScore(name: String, highScore: Int) {
+		scoreBoard.insertNewHighScore(new: HighScoreModel(name: name, score: highScore))
+	}
 }
 
 extension GamePresenter: UITableViewDataSource, UITableViewDelegate {
@@ -98,7 +104,9 @@ extension GamePresenter: UITableViewDataSource, UITableViewDelegate {
 		case .correct(let rowToRemove, let roundStatus):
 			gameView.anumatePointsChange(answer: true)
 			if case .endOfGame(let score) = roundStatus {
-				print("END OF GAME : SCORE\(score)")
+				if scoreBoard.isHighScore(score: score) {
+					gameView.displayHighScoreAlert(score: score)
+				}
 				gameView.gameEnded(score: score)
 				break
 			} else {
@@ -112,7 +120,9 @@ extension GamePresenter: UITableViewDataSource, UITableViewDelegate {
 		case .incorrect(let roundStatus):
 			gameView.anumatePointsChange(answer: false)
 			if case .endOfGame(let score) = roundStatus {
-				print("END OF GAME : SCORE\(score)")
+				if scoreBoard.isHighScore(score: score) {
+					gameView.displayHighScoreAlert(score: score)
+				}
 				gameView.gameEnded(score: score)
 				break
 			} else {

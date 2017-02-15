@@ -17,11 +17,11 @@ class ScoreboardModel: NSObject, NSCoding {
 	}
 
 	func encode(with aCoder: NSCoder) {
-		aCoder.encode(self.highScores, forKey: "HighScore")
+		aCoder.encode(self.highScores, forKey: "HighScores")
 	}
 
 	required convenience init?(coder: NSCoder) {
-		guard let highScores = coder.decodeObject(forKey: "HighScore") as? [HighScoreModel] else { return nil }
+		guard let highScores = coder.decodeObject(forKey: "HighScores") as? [HighScoreModel] else { return nil }
 		self.init(modelArray: highScores)
 	}
 
@@ -45,14 +45,21 @@ class ScoreboardModel: NSObject, NSCoding {
 		} else {
 			highScores.append(new)
 		}
+		for i in highScores {
+			print(i.score)
+		}
+		let resultBool = saveScoreBoard()
+		print(resultBool)
 	}
 
 	func saveScoreBoard() -> Bool {
-		return NSKeyedArchiver.archiveRootObject(self, toFile: "/Leaderboard")
+		let url = URL.documentsURL.path.appending("/scores")
+		return NSKeyedArchiver.archiveRootObject(self, toFile: url)
 	}
 
 	static func loadHighScores() -> ScoreboardModel? {
-		guard let scoreBoard = NSKeyedUnarchiver.unarchiveObject(withFile: "/Leaderboard") as? ScoreboardModel else { return nil }
+		let url = URL.documentsURL.path.appending("/scores")
+		guard let scoreBoard = NSKeyedUnarchiver.unarchiveObject(withFile: url) as? ScoreboardModel else { return nil }
 		return scoreBoard
 	}
 }

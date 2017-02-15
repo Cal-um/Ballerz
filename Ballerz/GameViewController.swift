@@ -97,6 +97,33 @@ class GameViewController: UIViewController {
 		})
 	}
 
+	func displayHighScoreAlert(score: Int) {
+
+		let alert = UIAlertController(title: "You have a high score!", message: "Enter your name", preferredStyle: .alert)
+
+		let logHighScoreAction = UIAlertAction(title: "Ok", style: .default) { [weak alert] _ in
+			if let alert = alert {
+				let nameTextField = alert.textFields![0] as UITextField
+				self.gamePresenter.logHighScore(name: nameTextField.text!, highScore: score)
+			}
+		}
+
+		logHighScoreAction.isEnabled = false
+
+		let cancelAction = UIAlertAction(title: "No thanks", style: .cancel, handler: nil)
+
+		alert.addTextField { textField in
+			textField.placeholder = "Name"
+			NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main) { notification in
+				logHighScoreAction.isEnabled = textField.text != ""
+			}
+		}
+
+		alert.addAction(logHighScoreAction)
+		alert.addAction(cancelAction)
+		present(alert, animated: true, completion: nil)
+	}
+
 	deinit {
 		print("GameViewController DEINIT")
 	}
