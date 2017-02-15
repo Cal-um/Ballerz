@@ -93,13 +93,14 @@ extension GamePresenter: UITableViewDataSource, UITableViewDelegate {
 	}
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		tableView.deselectRow(at: indexPath, animated: true)
+		tableView.deselectRow(at: indexPath, animated: false)
 		tableView.beginUpdates()
 
 		guard let game = game else { fatalError("game not initialised") }
 		guard let cardIndex = CardsInPlayIndex(rawValue: indexPath.row) else { fatalError("there should only be 2 indicies") }
 
 		switch game.processRound(choice: cardIndex) {
+			
 		case .correct(let rowToRemove, let roundStatus):
 			gameView.anumatePointsChange(answer: true)
 			if case .endOfGame(let score) = roundStatus {
@@ -115,6 +116,7 @@ extension GamePresenter: UITableViewDataSource, UITableViewDelegate {
 				tableView.insertRows(at: [rowToRemove.indexPathSectionZero()], with: .left)
 				gameView.newRound(round: game.model.currentRound, score: game.model.currentScore)
 			}
+			
 		case .incorrect(let roundStatus):
 			gameView.anumatePointsChange(answer: false)
 			if case .endOfGame(let score) = roundStatus {

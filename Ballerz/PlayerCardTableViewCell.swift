@@ -23,6 +23,7 @@ class PlayerCardTableViewCell: UITableViewCell {
 		playerImage.loadImageUsingUrlString(urlString: player.picURL)
 		pointsLabel.text = player.pointsForCard()
 		playerName.text = player.name
+		self.selectionStyle = .none
 	}
 
 	func showPoints() {
