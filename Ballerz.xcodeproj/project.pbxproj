@@ -19,6 +19,8 @@
 		3A92A4541E53489D007F9FB8 /* ScoreboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A92A4531E53489D007F9FB8 /* ScoreboardModel.swift */; };
 		3A92A4561E534919007F9FB8 /* HighScoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A92A4551E534919007F9FB8 /* HighScoreModel.swift */; };
 		3A92A4581E536AAD007F9FB8 /* LeaderBoardModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A92A4571E536AAD007F9FB8 /* LeaderBoardModelTests.swift */; };
+		3A92A45A1E546197007F9FB8 /* LeaderBoardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A92A4591E546197007F9FB8 /* LeaderBoardPresenter.swift */; };
+		3A92A45C1E546212007F9FB8 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A92A45B1E546212007F9FB8 /* LeaderboardView.swift */; };
 		3AEC5BD11E50EB0800493431 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC5BD01E50EB0800493431 /* GameViewController.swift */; };
 		3AEC5BD41E50EC3E00493431 /* GamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC5BD31E50EC3E00493431 /* GamePresenter.swift */; };
 		3AEC5BD61E50FD6900493431 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC5BD51E50FD6900493431 /* GameView.swift */; };
@@ -72,6 +74,8 @@
 		3A92A4531E53489D007F9FB8 /* ScoreboardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardModel.swift; sourceTree = "<group>"; };
 		3A92A4551E534919007F9FB8 /* HighScoreModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreModel.swift; sourceTree = "<group>"; };
 		3A92A4571E536AAD007F9FB8 /* LeaderBoardModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderBoardModelTests.swift; sourceTree = "<group>"; };
+		3A92A4591E546197007F9FB8 /* LeaderBoardPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderBoardPresenter.swift; sourceTree = "<group>"; };
+		3A92A45B1E546212007F9FB8 /* LeaderboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		3AEC5BD01E50EB0800493431 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		3AEC5BD31E50EC3E00493431 /* GamePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamePresenter.swift; sourceTree = "<group>"; };
 		3AEC5BD51E50FD6900493431 /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -173,6 +177,8 @@
 				3AEC5BEB1E52653F00493431 /* StartGamePresenter.swift */,
 				3AEC5BEF1E527D9300493431 /* StartGameView.swift */,
 				3AEC5BF11E528E1800493431 /* RootPageView.swift */,
+				3A92A4591E546197007F9FB8 /* LeaderBoardPresenter.swift */,
+				3A92A45B1E546212007F9FB8 /* LeaderboardView.swift */,
 			);
 			name = Presenters;
 			sourceTree = "<group>";
@@ -376,6 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A92A45A1E546197007F9FB8 /* LeaderBoardPresenter.swift in Sources */,
 				3AFFFD151E4DD52300205E17 /* NetworkImageView.swift in Sources */,
 				3AEC5BF21E528E1800493431 /* RootPageView.swift in Sources */,
 				3AEC5BF71E52A03C00493431 /* MusicPlayer.swift in Sources */,
@@ -399,6 +406,7 @@
 				3A92A4561E534919007F9FB8 /* HighScoreModel.swift in Sources */,
 				3AEC5BE01E51B71600493431 /* RootPageViewController.swift in Sources */,
 				3AEC5BE41E51B77500493431 /* Extensions.swift in Sources */,
+				3A92A45C1E546212007F9FB8 /* LeaderboardView.swift in Sources */,
 				3A5738151E4B1940002E688B /* AppDelegate.swift in Sources */,
 				3AFFFD0C1E4DB78C00205E17 /* Constants.swift in Sources */,
 				3AEC5BF01E527D9300493431 /* StartGameView.swift in Sources */,

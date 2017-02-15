@@ -12,6 +12,8 @@ class App {
 
 	init(window: UIWindow) {
 		window.rootViewController = setInitialViewController()
+		window.makeKeyAndVisible()
+		MusicPlayer.shared.playRKelly()
 	}
 
 	func setInitialViewController() -> UIViewController {
@@ -36,7 +38,10 @@ class App {
 	}
 
 	func assembleLeaderboardViewController() -> UIViewController {
-		return LeaderBoardViewController()
+		let leaderboardController = LeaderBoardViewController()
+		let presenter = LeaderBoardPresenter(leaderboardView: leaderboardController)
+		leaderboardController.presenter = presenter
+		return leaderboardController
 	}
 
 	func assembleGameViewController() -> UIViewController {

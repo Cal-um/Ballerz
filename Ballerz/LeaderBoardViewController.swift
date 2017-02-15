@@ -8,7 +8,9 @@
 
 import UIKit
 
-class LeaderBoardViewController: UIViewController {
+class LeaderBoardViewController: UIViewController, LeaderboardView {
+
+	var presenter: LeaderBoardPresenter!
 
 	let boardStackView: LeaderboardStackView = {
 		let view = LeaderboardStackView.instanceFromNib()
@@ -30,12 +32,11 @@ class LeaderBoardViewController: UIViewController {
 		view.addSubview(backgroundView)
 		view.addSubview(boardStackView)
 		setupConstraints()
-		
+
 	}
-	
+
 	override func viewWillAppear(_ animated: Bool) {
-		let models = [HighScoreModel(name: "mootiosnkajsbcskjbaksjc", score: 20), HighScoreModel(name: "moot", score: 12)]
-		boardStackView.configureWith(model: models)
+		presenter.loadScores()
 	}
 
 	func setupConstraints() {
