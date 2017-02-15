@@ -96,6 +96,65 @@ class GameViewController: UIViewController {
 			self.pointsLabel.isHidden = false
 		})
 	}
+}
+
+extension GameViewController: GameView {
+
+	func anumatePointsChange(answer: Bool) {
+		pointsAnimateConstraint.constant = 0
+		view.layoutIfNeeded()
+		pointsAnimateLabel.isHidden = false
+
+		if answer {
+			pointsAnimateLabel.text = "+3"
+			pointsAnimateLabel.textColor = .green
+		} else {
+			pointsAnimateLabel.text = "-3"
+			pointsAnimateLabel.textColor = .red
+		}
+
+		pointsAnimateConstraint.constant = -300
+
+		UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
+			self.view.layoutIfNeeded()
+		}, completion: { _ in
+			self.pointsAnimateLabel.isHidden = true
+		})
+	}
+
+	func beginGame() {
+		print("game has begun")
+		gameLayout()
+		tableView.reloadData()
+	}
+
+	func newRound(round: Int, score: Int) {
+		roundsLabel.text = "ROUND \(round)"
+		pointsLabel.text = String(score)
+	}
+
+	func gameEnded(score: Int) {
+		pointsLabel.text = String(score)
+		postGameLayout()
+		animateEndOfGameScore()
+	}
+
+	func noInternetConnection() {
+		displayNoInternetAlert()
+	}
+
+	func toggleSoundButtonImage(musicIsOn: Bool) {
+		if musicIsOn {
+			soundButton.setImage(UIImage(named:"Sound_On"), for: .normal)
+		} else {
+			soundButton.setImage(UIImage(named: "Sound_Mute"), for: .normal)
+		}
+	}
+}
+
+extension GameViewController {
+
+	// MARK :- Alert controllers
 
 	func displayHighScoreAlert(score: Int) {
 
@@ -124,61 +183,20 @@ class GameViewController: UIViewController {
 		present(alert, animated: true, completion: nil)
 	}
 
-	deinit {
-		print("GameViewController DEINIT")
-	}
-}
-
-extension GameViewController: GameView {
-
-	func anumatePointsChange(answer: Bool) {
-		pointsAnimateConstraint.constant = 0
-		view.layoutIfNeeded()
-		pointsAnimateLabel.isHidden = false
-
-		if answer {
-			pointsAnimateLabel.text = "+3"
-			pointsAnimateLabel.textColor = .green
-		} else {
-			pointsAnimateLabel.text = "-3"
-			pointsAnimateLabel.textColor = .red
+	func displayNoInternetAlert() {
+		let alert = UIAlertController(title: "Whoops", message: "No internet connection detected", preferredStyle: .alert)
+		let okAction = UIAlertAction(title: "OK", style: .cancel) { _ in
+			self.gamePresenter.backButtonTapped()
+			self.dismiss(animated: true, completion: nil)
 		}
-
-		pointsAnimateConstraint.constant = -300
-
-		UIView.animate(withDuration: 0.75, delay: 0, options: .curveEaseOut, animations: {
-			self.view.layoutIfNeeded()
-		}, completion: { _ in
-			self.pointsAnimateLabel.isHidden = true
-		})
+		alert.addAction(okAction)
+		present(alert, animated: true, completion: nil)
 	}
 
-	func beginGame() {
-		print("game has begun")
-		gameLayout()
-		tableView.reloadData()
-	}
-
-	func newRound(round: Int, score: Int) {
-		roundsLabel.text = "ROUND \(round)"
-		pointsLabel.text = String(score)
-	}
-
-	func gameEnded(score: Int) {
-		pointsLabel.text = String(score)
-		postGameLayout()
-		animateEndOfGameScore()
-	}
-
-	func noInternetConnection() {
-		 print("no internet connection detected")
-	}
-
-	func toggleSoundButtonImage(musicIsOn: Bool) {
-		if musicIsOn {
-			soundButton.setImage(UIImage(named:"Sound_On"), for: .normal)
-		} else {
-			soundButton.setImage(UIImage(named: "Sound_Mute"), for: .normal)
-		}
+	func displaySaveFailureAlert() {
+		let alert = UIAlertController(title: "Could not save", message: "Please check available data", preferredStyle: .alert)
+		let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+		alert.addAction(okAction)
+		present(alert, animated: true, completion: nil)
 	}
 }

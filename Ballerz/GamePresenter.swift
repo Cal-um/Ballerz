@@ -63,6 +63,10 @@ class GamePresenter: NSObject {
 
 	func logHighScore(name: String, highScore: Int) {
 		scoreBoard.insertNewHighScore(new: HighScoreModel(name: name, score: highScore))
+		let noErrorInSave = scoreBoard.saveScoreBoard()
+		if !noErrorInSave {
+			gameView.displaySaveFailureAlert()
+		}
 	}
 }
 
@@ -100,7 +104,7 @@ extension GamePresenter: UITableViewDataSource, UITableViewDelegate {
 		guard let cardIndex = CardsInPlayIndex(rawValue: indexPath.row) else { fatalError("there should only be 2 indicies") }
 
 		switch game.processRound(choice: cardIndex) {
-			
+
 		case .correct(let rowToRemove, let roundStatus):
 			gameView.anumatePointsChange(answer: true)
 			if case .endOfGame(let score) = roundStatus {
@@ -116,7 +120,7 @@ extension GamePresenter: UITableViewDataSource, UITableViewDelegate {
 				tableView.insertRows(at: [rowToRemove.indexPathSectionZero()], with: .left)
 				gameView.newRound(round: game.model.currentRound, score: game.model.currentScore)
 			}
-			
+
 		case .incorrect(let roundStatus):
 			gameView.anumatePointsChange(answer: false)
 			if case .endOfGame(let score) = roundStatus {

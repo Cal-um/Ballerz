@@ -15,11 +15,7 @@ final class GuessingGame {
 	let correctPoints = 3
 	let incorrectPoints = -3
 	let model: GuessingGameModel
-	var currentCardsInPlay: TwoCards? {
-		didSet {
-			print("TOP: \(currentCardsInPlay!.0.name) Points: \(currentCardsInPlay!.0.points) BOTTOM: \(currentCardsInPlay!.1.name) Points: \(currentCardsInPlay!.1.points)")
-		}
-	}
+	var currentCardsInPlay: TwoCards?
 
 	init(model: GuessingGameModel) {
 		self.model = model
