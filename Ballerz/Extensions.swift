@@ -2,7 +2,7 @@
 //  Extensions.swift
 //  BallerTest
 //
-//  Created by Calum Harris on 06/02/2017.
+//  Created by Calum Harris on 13/02/2017.
 //  Copyright © 2017 Calum Harris. All rights reserved.
 //
 // swiftlint:disable force_try
@@ -38,7 +38,7 @@ extension UIColor {
 	}
 
 	static func leaderboardBlue() -> UIColor {
-		return UIColor(red: 73/255, green: 135/255, blue: 183/255, alpha: 0.5)
+		return UIColor(red: 73/255, green: 135/255, blue: 183/255, alpha: 0.9)
 	}
 }
 
@@ -46,5 +46,11 @@ extension URL {
 
 	static var documentsURL: URL {
 		return try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+	}
+}
+
+extension Array {
+	subscript (safe index: Int) -> Element? {
+		return indices ~= index ? self[index] : nil
 	}
 }

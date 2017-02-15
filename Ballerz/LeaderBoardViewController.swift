@@ -30,6 +30,12 @@ class LeaderBoardViewController: UIViewController {
 		view.addSubview(backgroundView)
 		view.addSubview(boardStackView)
 		setupConstraints()
+		
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		let models = [HighScoreModel(name: "mootiosnkajsbcskjbaksjc", score: 20), HighScoreModel(name: "moot", score: 12)]
+		boardStackView.configureWith(model: models)
 	}
 
 	func setupConstraints() {
@@ -38,8 +44,8 @@ class LeaderBoardViewController: UIViewController {
 			boardStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0),
 
 			backgroundView.topAnchor.constraint(equalTo: boardStackView.topAnchor, constant: -20),
-			backgroundView.leadingAnchor.constraint(equalTo: boardStackView.leadingAnchor, constant: -20),
-			backgroundView.trailingAnchor.constraint(equalTo: boardStackView.trailingAnchor, constant: 20),
+			backgroundView.leadingAnchor.constraint(equalTo: boardStackView.leadingAnchor, constant: 0),
+			backgroundView.trailingAnchor.constraint(equalTo: boardStackView.trailingAnchor, constant: 0),
 			backgroundView.bottomAnchor.constraint(equalTo: boardStackView.bottomAnchor, constant: 20)
 		])
 	}
