@@ -7,6 +7,7 @@ Be a Baller and get a high score to add your name to the leaderboard.
 
 * Xcode 8+
 * iOS device running iOS 10.2 - only required if you want to play outwith the Xcode simulator
+* An internet connection
 
 ## Installation
 
